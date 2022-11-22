@@ -4,6 +4,8 @@ typedef enum {
     _NUM = 1,
     _SYM = 2,
     _GAME = 3,
+    _NEOMAC = 4,
+    _MULTI,
     _WEAPON,
     _ADJ
 }CRKBD_LAYERS;

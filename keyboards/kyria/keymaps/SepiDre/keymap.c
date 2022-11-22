@@ -14,142 +14,65 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-#include "defenitions.c"
-#include "keymap_german.h"
-#include "rgb.c"
+#include "enums.h"
+#include "layer.h"
 #include "oled.c"
 #include "logics.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/*
- * Neo Base Layer: NEO2
- *
- * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  ESC   |   X  |   V  |   L  |   C  |   W  |                              |   K  |   H  |   G  |   F  |   Q  |   ß    |
- * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * | Ctrl/BS|   U  |   I  |   A  |   E  |   O  |                              |   S  |   N  |   R  |   T  |   D  |   Y    |
- * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | NEO 2S |   Ü  |   Ö  |   Ä  |   P  |   Z  |  Tab |LSHIFT|  |LSHIFT| Tab  |   B  |   M  |   ,  |   .  |   J  |   -    |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |  GUI | Del  | Alt  | Space| Enter|  | Enter| Space| Alt  | Bksp |NEO 2S|
- *                        |      |      |      |  Num |  Sym |  |  Sym |  Num |      |      |      |
- *                        `----------------------------------'  `----------------------------------'
- *
-    [_NEO2] = LAYOUT(
-      KC_ESC,                DE_X,   DE_V,   DE_L,   DE_C,   DE_W,                                                  DE_K, DE_H, DE_G,    DE_F,   DE_Q, DE_SS,
-      MO(_NEO2_2),           DE_U,   DE_I,   DE_A,   DE_E,   DE_O,                                                   DE_S, DE_N, DE_R,    DE_T,   DE_D, DE_Y,
-      KC_LCTL, DE_UE,  DE_OE,  DE_AE,  DE_P,   DE_Z, KC_TAB, KC_LSHIFT,               KC_LEAD, KC_TAB, DE_B, DE_M, DE_COMM, DE_DOT, DE_J, DE_MINS,
-                 KC_RGUI, KC_LALT, LT(_NUMLEFT, KC_DEL), LT(_NUMBER, KC_SPC), LT(_SYMBOLS, KC_ENT), LT(_SYMBOLS, KC_ENT), LT(_NUMBER, KC_SPC),  KC_BSPC, KC_LALT, MO(_NEO2_2)
+	  [_NEO] = LAYOUT(
+      LT(_WEAPON, KC_ESC), DE_X,   DE_V,   DE_L,   DE_C,   DE_W,                   /*|*/                  DE_K, DE_H, DE_G,    DE_F,   DE_Q, DE_SS,
+      LSFT_T(KC_TAB),      DE_U,   DE_I,   DE_A,   DE_E,   DE_O,                   /*|*/                  DE_S, DE_N, DE_R,    DE_T,   DE_D, DE_Y,
+      KC_LCTRL,            DE_UE,  DE_OE,  DE_AE,  DE_P,   DE_Z, _______, _______, /*|*/ _______, _______,DE_B, DE_M, DE_COMM, DE_DOT, DE_J, DE_MINS,
+                                       _______, _______,KC_LEAD, KC_SPC, MO(_NUM), /*|*/ MO(_SYM), LSFT_T(KC_ENT), LALT_T(KC_PGDN), _______, _______
     ),
- */
-    [_NEO2] = LAYOUT(
-      LT(_NUMLEFT, KC_ESC), DE_X,   DE_V,   DE_L,   DE_C,   DE_W,                                 /*|*/                 DE_K, DE_H, DE_G,    DE_F,   DE_Q, DE_SS,
-      LALT_T(KC_TAB),        DE_U,   DE_I,   DE_A,   DE_E,   DE_O,                                 /*|*/                 DE_S, DE_N, DE_R,    DE_T,   DE_D, DE_Y,
-      KC_LCTRL,              DE_UE,  DE_OE,  DE_AE,  DE_P,   DE_Z, KC_TAB, KC_LSHIFT,              /*|*/KC_LEAD, KC_TAB, DE_B, DE_M, DE_COMM, DE_DOT, DE_J, DE_MINS,
-              KC_RGUI, KC_LSHIFT, LT(_SYMBOLS, KC_ENT), LSFT_T(KC_SPC), LT(_NUMBER, KC_DEL),/*|*/LT(_NUMBER, KC_BSPC), LSFT_T(KC_SPC),  LT(_SYMBOLS, KC_ENT), KC_RSHIFT, KC_LGUI
+	  [_NEOMAC] = LAYOUT(
+      LT(_MULTI, KC_ESC), DE_X,   DE_V,   DE_L,   DE_C,   DE_W,                   /*|*/                  DE_K, DE_H, DE_G,    DE_F,   DE_Q, DE_SS,
+      LSFT_T(KC_TAB),     DE_U,   DE_I,   DE_A,   DE_E,   DE_O,                   /*|*/                  DE_S, DE_N, DE_R,    DE_T,   DE_D, DE_Y,
+      KC_LCTRL,           DE_UE,  DE_OE,  DE_AE,  DE_P,   DE_Z, _______, _______, /*|*/ _______, _______,DE_B, DE_M, DE_COMM, DE_DOT, DE_J, DE_MINS,
+                                     _______, _______, KC_LGUI, KC_SPC, MO(_NUM), /*|*/ MO(_SYM), LSFT_T(KC_ENT), KC_LALT, _______, _______
     ),
-/*
- * Lower Layer: Symbols
- *
- * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |  @   |  _   |  [   |  ]   |  ^   |                              |   !  |  <   |  >   |  =   |   &  |   §    |
- * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |  \   |  /   |  {   |  }   |  *   |                              |   ?  |  (   |  )   |  -   |   :  |   €    |
- * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |  #   |  $   |  |   |  ~   |  `   |      |      |  |      |      |   +  |  %   |  "   |  '   |   ;  |   ´    |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        `----------------------------------'  `----------------------------------'
- */
-    [_SYMBOLS] = LAYOUT(
-      _______, DE_AT,   DE_UNDS, DE_LBRC, DE_RBRC, DE_CIRC,                 /*|*/                  DE_EXLM, DE_LABK, DE_RABK, DE_EQL,  DE_AMPR, DE_SECT,
-      LCTL(KC_Z), DE_BSLS, DE_SLSH, DE_LCBR, DE_RCBR, DE_ASTR,                 /*|*/                  DE_QUES, DE_LPRN, DE_RPRN, DE_MINS, DE_COLN, DE_EURO,
-      LCTL(KC_S), DE_HASH, DE_DLR,  DE_PIPE, DE_TILD, DE_GRV, _______, _______,/*|*/_______, _______, DE_PLUS, DE_PERC, DE_DQUO, DE_QUOT, DE_SCLN, _______,
-                             _______, _______, _______, LCTL(LGUI(KC_LEFT)), LCTL(LGUI(KC_RIGHT)),/*|*/_______, _______, _______, _______, _______
+
+      [_NUM] = LAYOUT(
+      KC_ENT,     KC_HOME,  KC_BSPC,   KC_UP,    KC_DEL,   KC_END,                    /*|*/                  KC_PAST, KC_7, KC_8, KC_9, KC_PMNS, KC_PEQL,
+      _______,    KC_UNDO,  KC_LEFT,   KC_DOWN,  KC_RIGHT, KC_PGDOWN,                 /*|*/                  KC_PSLS, KC_4, KC_5, KC_6, KC_PPLS, _______,
+      LCTL(KC_S), KC_AGAIN, LCA(DE_R), S(KC_F5), KC_F12,   KC_PGUP, _______, _______, /*|*/ _______, _______,KC_0,    KC_1, KC_2, KC_3, KC_PDOT, KC_PCMM,
+                                           _______, _______, KC_F2, KC_SPC, MO(_NUM), /*|*/ MO(_SYM), LSFT_T(KC_ENT), LALT_T(KC_PGDN), _______, _______
     ),
-/*
- * Raise Layer: Number keys, navigation
- *
- * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        | REDO | BSPC |  UP  | DEL  | PUP  |                              |  *   |  7   |  8   |  9   |  -   |STALINS |
- * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * | LSHIFT | HOME | LEFT | DOWN | RIGHT| END  |                              |  /   |  4   |  5   |  6   |  +   |STALEND |
- * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        | Undo | Tab  | S-F5 |  F12 | PDOWN|      |      |  |      |      |  0   |  1   |  2   |  3   |  .   | STALEN |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |  F2  |      |      |      |      |  |      |      |      |      |LSHIFT|
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        `----------------------------------'  `----------------------------------'
- */
-    [_NUMBER] = LAYOUT(
-      _______,   KC_HOME,  KC_BSPC, KC_UP,   KC_DEL, KC_END,                         /*|*/                  KC_PAST, KC_P7, KC_P8, KC_P9, KC_PMNS, KC_PEQL,
-      ALT_TAB, KC_UNDO,  KC_LEFT, KC_DOWN, KC_RIGHT,   KC_PGDOWN,                     /*|*/                  KC_PSLS, KC_P4, KC_P5, KC_P6, KC_PPLS, _______,
-      LGUI(KC_TAB),   KC_AGAIN, LCA(DE_R), S(KC_F5),KC_F12,   KC_PGUP, _______, _______,/*|*/LCA(KC_DEL), _______, KC_P0,    KC_P1, KC_P2, KC_P3, KC_PDOT,  KC_PCMM,
-                                         _______, _______, KC_F2, _______, _______,/*|*/LCA(KC_END), _______, _______, _______, LCA(KC_INS)
+
+      [_SYM] = LAYOUT(
+      KC_ESC,     DE_AT,   DE_UNDS, DE_LBRC, DE_RBRC, DE_CIRC,                  /*|*/                  DE_EXLM, DE_LABK, DE_RABK, DE_EQL,  DE_AMPR, DE_SECT,
+      LCTL(KC_Z), DE_BSLS, DE_SLSH, DE_LCBR, DE_RCBR, DE_ASTR,                  /*|*/                  DE_QUES, DE_LPRN, DE_RPRN, DE_MINS, DE_COLN, DE_EURO,
+      LCTL(KC_S), DE_HASH, DE_DLR,  DE_PIPE, DE_TILD, DE_GRV, _______, _______, /*|*/ _______, _______,DE_PLUS, DE_PERC, DE_DQUO, DE_QUOT, DE_SCLN, _______,
+                             _______, _______, LCA_T(KC_DEL), _______, _______, /*|*/ _______, LSFT_T(KC_ENT), LALT_T(KC_PGDN), _______, _______
     ),
-/*
- * Base Layer: NUMLEFT
- *
- * ,-------------------------------------------.
- * |MEDIAPL |PL/PAU|   7  |   8  |   9  |      |
- * |--------+------+------+------+------+------|
- * |  PREV  | NEXT |   4  |   5  |   6  |      |
- * |--------+------+------+------+------+------+-------------.
- * |        |   0  |   1  |   2  |   3  |      |      |      |
- * |        |      |      |      |      |      |      |      |
- * `----------------------+------+------+------+------+------|
- *                        |      |      |      |      |      |
- *                        |      |      |      |      |      |
- *                        `----------------------------------'
- */
-    [_NUMLEFT] = LAYOUT(
-      _______, DE_1, DE_2, DE_3, DE_4, DE_5,                  /*|*/                  _______, _______, _______, _______, _______, _______,
-      _______, DE_6, DE_7, DE_8, DE_9, DE_0,                  /*|*/                  _______, _______, _______, _______, _______, _______,
-      _______, KC_MSEL, _______, _______, _______, DE_G, _______, _______,/*|*/_______, _______, _______, _______, _______, _______, _______, _______,
-                        _______, _______, KC_MPRV, KC_MPLY, KC_MNXT,/*|*/_______, _______, _______, _______, _______
+	  [_MULTI] = LAYOUT(
+      _______, KC_LGUI, _______, KC_1, KC_2, KC_3,                   /*|*/                   KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,       KC_F6,
+      KC_TAB,  _______, _______, KC_4, KC_5, KC_6,                   /*|*/                   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,      KC_F12,
+      KC_MSEL, _______, KC_0,    KC_7, KC_8, KC_9, _______, _______, /*|*/ _______, _______, KC_PGUP, KC_PGDN, _______, TG(_NEO), TG(_NEOMAC), TG(_GAME),
+                        _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, /*|*/ _______, _______, EEP_RST, _______, _______
     ),
-/*
- * Adjust Layer: Function keys, RGB
- *
- * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  WAKE  | F11  | F12  |QUERTY| SHOOT| NEO2 |                              | TOG  | HUI  | SAI  | VAI  | MOD  |  HIBER |
- * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        | F6   | F7   |  F8  | F9   | F10  |                              |      | HUD  | SAD  | VAD  | RMOD |        |
- * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        | F1   | F2   |  F3  | F4   | F5   |      |      |  |      |      |      | DLEFT| DESK |DRIGHT|      |        |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        `----------------------------------'  `----------------------------------'
- */
-    [_ADJUST] = LAYOUT(
-        KC_SYSTEM_WAKE, KC_F11, KC_F12, KC_SLCK, DF(_SHOOT), DF(_NEO2),                  /*|*/                  RGB_TOG, RGB_HUI,             RGB_SAI,    RGB_VAI,              RGB_MOD,  HIBER,
-        _______,  KC_F6,  KC_F7,  KC_F8,   KC_F9,     KC_F10,                     /*|*/                  _______, RGB_HUD,             RGB_SAD,    RGB_VAD,              RGB_RMOD, _______,
-        _______,         KC_F1,  KC_F2,  KC_F3,   KC_F4,     KC_F5,     _______, _______,/*|*/_______, _______, _______, LCTL(LGUI(KC_LEFT)), LGUI(KC_D), LCTL(LGUI(KC_RIGHT)), _______,  _______,
-                                             _______, _______, _______, _______, _______,/*|*/_______, _______, _______, _______, _______
+
+	  [_GAME] = LAYOUT(
+      KC_ESC,  DE_X,    DE_V,   DE_L,  DE_C,   DE_W,                   /*|*/                  DE_K, DE_H, DE_G,    DE_F,   DE_Q, DE_SS,
+      KC_LSFT, DE_U,    DE_I,   DE_A,  DE_E,   DE_O,                   /*|*/                  DE_S, DE_N, DE_R,    DE_T,   DE_D, DE_Y,
+      KC_LCTL, DE_COMM, DE_DOT, DE_D,  DE_P,   DE_Z, _______, _______, /*|*/ _______, _______,DE_B, DE_M, DE_COMM, DE_DOT, DE_J, DE_MINS,
+                        _______, _______, KC_TAB, KC_SPC, MO(_WEAPON), /*|*/ MO(_SYM), KC_ENT, LALT_T(KC_PGDN), _______, _______
     ),
-/*
- * Base Layer: Shooter
- *
- * ,-------------------------------------------.
- * |   ESC  |   T  |   Q  |   W  |   E  |   R  |
- * |--------+------+------+------+------+------|
- * |  CTRL  |   G  |   A  |   S  |   D  |   F  |
- * |--------+------+------+------+------+------+-------------.
- * | LShift |   B  |   Z  |   X  |   C  |   V  | Tab  |LShift|
- * |        |      |      |      |      |      | Num  | Sym  |
- * `----------------------+------+------+------+------+------|
- *                        | GUI  | Del  | Alt  | Space| Enter|
- *                        |      |      |      |      |      |
- *                        `----------------------------------'
- */
-    [_SHOOT] = LAYOUT(
-      LALT_T(KC_ESC), _______, _______, _______, _______, _______,                   /*|*/                  _______, _______, _______, _______, _______, _______,
-      _______, _______, _______, _______, _______, _______,                   /*|*/                  _______, _______, _______, _______, _______, _______,
-      _______, DE_COMM, DE_DOT, DE_D, _______, _______, DE_J, DE_Q,/*|*/_______, _______, _______, _______, _______, _______, _______, _______,
-                                    DE_MINS, DE_F, KC_DEL, KC_SPC, KC_ENT ,/*|*/_______, KC_RGUI, _______, _______, _______
+
+	  [_WEAPON] = LAYOUT(
+      KC_ESC,  KC_1,  KC_2,      KC_3, KC_4, KC_5,                   /*|*/                   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+      KC_TAB,  KC_LSFT, DE_6,    KC_S, KC_7, KC_8,                   /*|*/                   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+      KC_MSEL, KC_LCTL, DE_MINS, KC_X, DE_9, DE_0, _______, _______, /*|*/ _______, _______, KC_PGUP, KC_PGDN, _______, _______, EEP_RST, TG(_GAME),
+                        _______, _______, _______, _______, _______, /*|*/ KC_ENT, KC_SPC, LALT_T(KC_PGDN), _______, _______
     ),
+
+      [_ADJ] = LAYOUT(
+      KC_SYSTEM_WAKE, _______,  _______,  KC_SLCK, _______,   _______,                 /*|*/                   RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD,  HIBER,
+      KC_F7,          KC_F8,    KC_F9,    KC_F10,  KC_F11,    KC_F12,                  /*|*/                   DE_S,    RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, _______,
+      KC_F1,          KC_F2,    KC_F3,    KC_F4,   KC_F5,     KC_F6, _______, _______, /*|*/ _______, _______, _______, _______, _______, _______,  _______, _______,
+                                  _______, _______, LGUI_T(KC_PGUP), KC_SPC, MO(_NUM), /*|*/ MO(_SYM), KC_ENT, LALT_T(KC_PGDN), _______, _______
+    )
 // /*
 //  * Layer template
 //  *

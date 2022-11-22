@@ -1,51 +1,84 @@
-#include QMK_KEYBOARD_H
-#include <stdio.h>
+//#include QMK_KEYBOARD_H
+//#include <stdio.h>
+#include logo_reader.c
+
+// Oled timer similar to Drashna's
+static uint32_t oled_timer = 0;
+// Boolean to store the master LED clear so it only runs once.
+bool master_oled_cleared = false;
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 	return OLED_ROTATION_180;
 }
 
 // Das Display kann 11 Zeichen
-static void render_status(void) {
-    // QMK Logo and version information
-    //render_qmk_logo();
-    oled_write_P(PSTR("SepiDre 2.0\n\n"), false);
+// {OLED helpers} -----------------------------------------------//
+// Render Logo
+void render_logo(void) {
+    oled_write_P(read_logo(), false);
+}
 
-    oled_write_P(PSTR("Default: "), false);
-    switch (get_highest_layer(default_layer_state)) {
-        case _NEO2:
-            oled_write_P(PSTR("NEO 2\n"), false);
+// Master OLED Screen (Left Hand )
+void render_master_oled(void) {
+    // Switch display based on Layer
+    switch (get_highest_layer(layer_state)){
+        case _GAME:
+            render_separator();
+            render_separator();
+            render_layer_state();
+            render_separator();
+            render_separator();
+            render_separator();
             break;
-        case _SHOOT:
-            oled_write_P(PSTR("Shooter\n"), false);
+        case _WEAPON:
+            render_separator();
+            render_separator();
+            render_separator();
+            render_layer_state();
+            render_separator();
+            render_separator();
             break;
+        default:
+            render_separator();
+            render_separator();
+            render_layer_state();
+            render_separator();
+            render_separator();
     }
+}
 
-    // Host Keyboard Layer Status
-    oled_write_P(PSTR("Layer: "), false);
-    switch (get_highest_layer(layer_state)) {
-        case _NUMBER:
-        case _NUMLEFT:
-            oled_write_P(PSTR("Numbers"), false);
-            break;
-        case _SYMBOLS:
-            oled_write_P(PSTR("Symbols"), false);
-            break;
-        case _ADJUST:
-            oled_write_P(PSTR("Adjust"), false);
-            break;
-    }
-
-    // Host Keyboard LED Status
-    uint8_t led_usb_state = host_keyboard_leds();
-    oled_write_P(IS_LED_ON(led_usb_state, USB_LED_CAPS_LOCK) ? PSTR("CAPLCK ") : PSTR("       "), false);
-    oled_write_P(IS_LED_ON(led_usb_state, USB_LED_SCROLL_LOCK) ? PSTR("SCRLCK ") : PSTR("       "), false);
+// Slave OLED scren (Right Hand)
+void render_slave_oled(void) {
+    render_logo();
 }
 
 void oled_task_user(void) {
-    if (is_keyboard_master()) {
-        render_status(); // Renders the current keyboard state (layer, lock, caps, scroll, etc)
-    } else {
-         render_status(); // Renders the current keyboard state (layer, lock, caps, scroll, etc)
+
+    if (timer_elapsed32(oled_timer) > 100000 && timer_elapsed32(oled_timer) < 479999) {
+        // Render logo on both halves before full timeout
+        if (is_keyboard_master() && !master_oled_cleared) {
+            // Clear master OLED once so the logo renders properly
+            oled_clear();
+            master_oled_cleared = true;
+        }
+        render_logo();
+        return;
+    }
+    // Drashna style timeout for LED and OLED Roughly 8mins
+    else if (timer_elapsed32(oled_timer) > 480000) {
+        oled_off();
+        rgblight_disable_noeeprom();
+        return;
+    }
+    else {
+        oled_on();
+        // Reset OLED Clear flag
+        master_oled_cleared = false;
+        // Show logo when USB dormant
+        if (is_keyboard_master()) {
+            render_master_oled();
+        } else {
+            render_slave_oled();
+        }
     }
 }

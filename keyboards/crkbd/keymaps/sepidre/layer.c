@@ -10,6 +10,9 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
     if (data[0] == 99) {
         layer_on(_NEO);
     }
+    else if (data[0] == 89) {
+        layer_on(_NEOMAC);
+    }
     else
     {
         switch (data[0]) {
@@ -79,6 +82,12 @@ void render_layer_state(void){
 	// If you want to change the display of OLED, you need to change here
     switch (get_highest_layer(layer_state)){
         case _NEO:
+            oled_write_ln_P(PSTR("[ MODE | NEO 2     ]"), false);
+            break;
+        case _NEOMAC:
+            oled_write_ln_P(PSTR("[ MODE | NEO 2 MAC ]"), false);
+            break;
+        case _MULTI:
             oled_write_ln_P(PSTR("[ MODE | NEO 2     ]"), false);
             break;
         case _NUM:

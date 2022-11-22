@@ -12,6 +12,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+docker container exec --workdir /qmk_firmware qmk qmk compile -kb kyria -km SepiDre
  */
 
 #pragma once
@@ -51,13 +52,23 @@
 
 // Allows to use either side as the master. Look at the documentation for info:
 // https://docs.qmk.fm/#/config_options?id=setting-handedness
-#define EE_HANDS
+#define MASTER_LEFT
+
+#define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 150
+#undef PRODUCT
+#define PRODUCT CRKBD Loose Transistor Ed.
+
+#define RAW_USAGE_PAGE 0xFF60
+#define RAW_USAGE_ID 0x61
 
 // The Leader key allows to flexibly assign macros to key sequences.
+#define NO_ACTION_MACRO
 #define LEADER_PER_KEY_TIMING
-#define LEADER_TIMEOUT 350
-
-#define TAPPING_TERM 200
+#define LEADER_TIMEOUT 950
 
 // Allows media codes to properly register in macros and rotary encoder code
 #define TAP_CODE_DELAY 10
+// Custom Font path
+#define OLED_FONT_H "keyboards/kyria/keymaps/SepiDre/glcdfont.c"
+#define OLED_DISABLE_TIMEOUT

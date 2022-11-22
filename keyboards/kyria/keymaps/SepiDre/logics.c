@@ -1,24 +1,11 @@
-#include QMK_KEYBOARD_H
-#include "secrets.c"
+#include "keymap_german.h"
+#include "led.c"
 
 bool is_alt_tab_active = false;
 uint16_t alt_tab_timer = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 switch (keycode) {
-    case ALT_TAB:
-        if (record->event.pressed) {
-            if (!is_alt_tab_active) {
-                is_alt_tab_active = true;
-                unregister_code(KC_LSHIFT);
-                register_code(KC_LALT);
-            }
-        alt_tab_timer = timer_read();
-        register_code(KC_TAB);
-        } else {
-            unregister_code(KC_TAB);
-        }
-        break;
    case HIBER:
         if (record->event.pressed) {
             SEND_STRING(SS_LCTRL(" "));
@@ -27,107 +14,140 @@ switch (keycode) {
             return false;
         }
         break;
+    default:
+    // Use process_record_keymap to reset timer on all other keypresses to awaken from idle.
+        if (record->event.pressed) {
+            #ifdef OLED_DRIVER_ENABLE
+                oled_timer = timer_read32();
+            #endif
+        }
   }
   return true;
 }
 
+
 LEADER_EXTERNS();
-
 void matrix_scan_user(void) {
-  if (is_alt_tab_active) {
-    if (timer_elapsed(alt_tab_timer) > 1000) {
-      unregister_code(KC_LALT);
-      is_alt_tab_active = false;
-    }
-  }
-  LEADER_DICTIONARY() {
-    leading = false;
-    leader_end();
+    LEADER_DICTIONARY() {
+        leading = false;
+        leader_end();
 
+        // for single key sequences
+        // register_code(KC_LGUI);
+        // register_code(KC_S);
+        // unregister_code(KC_S);
+        // unregister_code(KC_LGUI);
+        SEQ_ONE_KEY(KC_W) {
+            register_code(KC_LGUI);
+            unregister_code(KC_LGUI);
+        }
+        SEQ_ONE_KEY(KC_C) {
+            SEND_STRING(SS_LCTL("c"));
+        }
+        SEQ_ONE_KEY(KC_V) {
+            SEND_STRING(SS_LCTL("v"));
+        }
+        SEQ_ONE_KEY(KC_X) {
+            SEND_STRING(SS_LCTL("x"));
+        }
+        SEQ_ONE_KEY(KC_L) {
+            SEND_STRING(SS_LGUI("l"));
+        }
+        SEQ_ONE_KEY(KC_E) {
+            SEND_STRING(SS_LGUI("e"));
+        }
+        SEQ_ONE_KEY(KC_DOT) {
+            SEND_STRING(SS_LGUI("."));
+        }
+        SEQ_ONE_KEY(KC_TAB) {
+            register_code(KC_LALT);
+            register_code(KC_TAB);
+            unregister_code(KC_LALT);
+            unregister_code(KC_TAB);
+        }
 
-/*
-    SEQ_TWO_KEYS(KC_L, KC_L) { // WinLogin
-        SEND_STRING((SS_LCTRL(SS_LALT(X_DELETE))) SS_DELAY(1000));
-        send_string(login);
+        // for two-key sequences
+        SEQ_TWO_KEYS(KC_C, KC_A) {
+            SEND_STRING(SS_LCTL("a") SS_LCTL("c"));
+        }
+        SEQ_TWO_KEYS(KC_T, KC_O) {
+            // Start Toggle
+            register_code(KC_LCTL);
+            register_code(KC_LALT);
+            register_code(DE_AE);
+            unregister_code(KC_LCTL);
+            unregister_code(KC_LALT);
+            unregister_code(DE_AE);
+        }
+        SEQ_TWO_KEYS(KC_L, KC_O) {
+            // Start STRG ALT DEL
+            register_code(KC_LCTL);
+            register_code(KC_LALT);
+            register_code(KC_DEL);
+            unregister_code(KC_LCTL);
+            unregister_code(KC_LALT);
+            unregister_code(KC_DEL);
+        }
+        SEQ_TWO_KEYS(KC_P, KC_S) {
+            // Start Taskmgmnr
+            register_code(KC_LCTL);
+            register_code(KC_LSFT);
+            register_code(KC_ESC);
+            unregister_code(KC_LCTL);
+            unregister_code(KC_LSFT);
+            unregister_code(KC_ESC);
+        }
+        SEQ_TWO_KEYS(KC_C, KC_S) {
+            // Start Greenshot
+            register_code(KC_LCTL);
+            register_code(KC_LALT);
+            register_code(KC_C);
+            unregister_code(KC_LCTL);
+            unregister_code(KC_LALT);
+            unregister_code(KC_C);
+        }
+        SEQ_TWO_KEYS(KC_E, KC_E) {
+            // Start Enpass
+            register_code(KC_LCTL);
+            register_code(KC_LALT);
+            register_code(DE_Z);
+            unregister_code(KC_LCTL);
+            unregister_code(KC_LALT);
+            unregister_code(DE_Z);
+        }
+        SEQ_TWO_KEYS(KC_E, KC_U) {
+            // Copy User Enpass
+            register_code(KC_LCTL);
+            register_code(KC_LSFT);
+            register_code(KC_U);
+            unregister_code(KC_LCTL);
+            unregister_code(KC_LSFT);
+            unregister_code(KC_U);
+        }
+        SEQ_TWO_KEYS(KC_E, KC_P) {
+            // Copy PWD Enpass
+            register_code(KC_LCTL);
+            register_code(KC_LSFT);
+            register_code(KC_P);
+            unregister_code(KC_LCTL);
+            unregister_code(KC_LSFT);
+            unregister_code(KC_P);
+        }
+        SEQ_TWO_KEYS(KC_E, KC_T) {
+            // Copy Token Enpass
+            register_code(KC_LCTL);
+            register_code(KC_LSFT);
+            register_code(KC_T);
+            unregister_code(KC_LCTL);
+            unregister_code(KC_LSFT);
+            unregister_code(KC_T);
+        }
+
+        // for three-key sequences
+        //SEQ_THREE_KEYS(KC_XXXX, KC_YYYY, KC_ZZZZ) {
+            // INSERT CODE HERE: anything you can do in a macro
+        //}
+
+        // ..., the rest of your Leader Key definitions.
     }
-    SEQ_ONE_KEY(KC_L) { // Windows HEllo
-        send_string(login);
-        SEND_STRING(SS_TAP(X_ENTER));
-    }*/
-    SEQ_ONE_KEY(KC_Z) { // Invoke Password Manager
-        register_code(KC_LCTL);
-        register_code(KC_LALT);
-        register_code(DE_Z);
-        unregister_code(DE_Z);
-        unregister_code(KC_LCTL);
-        unregister_code(KC_LALT);
-    }
-    SEQ_ONE_KEY(KC_C) { // Windows screenshot
-        SEND_STRING(SS_LCTRL(SS_LALT("C")));
-    }
-  }
 }
-
-/*
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-  switch(id) {
-    // for basic strings
-    case HUNT_ANTIDODE: {
-        if (record->event.pressed) {
-            SEND_STRING("YOUR_STRING_HERE"); // REPLACE with what you want your macro to be
-            //SEND_STRING(SS_TAP(X_PSCREEN) SS_LGUI("r"));
-            //_delay_ms(500);
-            //SEND_STRING("mspaint" SS_TAP(X_ENTER));
-            //_delay_ms(500);
-            //SEND_STRING(SS_LCTRL("v"));
-            return false;
-        }
-    }
-
-
-    // for more complex macros (want to add modifiers, etc.)
-    case HUNT_HEAL_FAST: {
-      if (record->event.pressed) {
-        return MACRO(
-          // INSERT CODE HERE for your macro. See https://docs.qmk.fm/macros.html
-        );
-      }
-    }
-    case HUNT_HEAL_SLOW: {
-      if (record->event.pressed) {
-        return MACRO(
-          // INSERT CODE HERE for your macro. See https://docs.qmk.fm/macros.html
-        );
-      }
-    }
-  }
-  return MACRO_NONE;
-};
-
-
-#ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        // Volume control
-        if (clockwise) {
-            tap_code(KC_VOLU);
-            tap_code(KC_VOLU);
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-            tap_code(KC_VOLD);
-            tap_code(KC_VOLD);
-        }
-    }
-    else if (index == 1) {
-        // Page up/Page down
-        if (clockwise) {
-            tap_code(KC_PGDN);
-        } else {
-            tap_code(KC_PGUP);
-        }
-    }
-}
-#endif
-*/
