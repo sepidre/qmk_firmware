@@ -45,15 +45,11 @@ jobs:
           chmod +x jq
           mv jq /usr/local/sbin/
 
-          echo "${keyboards}" | while IFS= read -r line ; do
-            case "$line" in
-              *${{ matrix.keyboard }}*)
-                echo "Building for ${line}"
-                make_command="bin/fp_build.sh -k ${line} -m ${{ github.actor }} -r"
-                echo "${make_command}"
-                $make_command
-              ;;
-            esac
+          echo "Building keyboard {{ matrix.keyboard }} for user ${{ github.actor }}"
+          make_command="bin/fp_build.sh -k {{ matrix.keyboard }} -m ${{ github.actor }} -r"
+          echo "${make_command}"
+          $make_command
+
           done
         continue-on-error: true
 
@@ -66,15 +62,11 @@ jobs:
           chmod +x jq
           mv jq /usr/local/sbin/
 
-          echo "${keyboards}" | while IFS= read -r line ; do
-            case "$line" in
-              *${{ matrix.keyboard }}*)
-                echo "Building for ${line}"
-                make_command="bin/fp_build.sh -k ${line} -m ${{ github.actor }} -r"
-                echo "${make_command}"
-                $make_command
-              ;;
-            esac
+          echo "Building keyboard {{ matrix.keyboard }} default firmware"
+          make_command="bin/fp_build.sh -k ${line} -r"
+          echo "${make_command}"
+          $make_command
+
           done
         continue-on-error: true
 
