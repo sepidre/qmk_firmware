@@ -45,12 +45,17 @@ jobs:
           wget -q https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O jq
           chmod +x jq
           mv jq /usr/local/sbin/
+          keyboards=$(bash bin/fp_build.sh -l| sed s~keyboards/fingerpunch/~~)
 
-          echo "Building keyboard {{ matrix.keyboard }} for user ${{ github.actor }} "
-          make_command="bin/fp_build.sh -k {{ matrix.keyboard }} -m ${{ github.actor }} -r"
-          echo "${make_command}"
-          $make_command
-
+          echo "${keyboards}" | while IFS= read -r line ; do
+            case "$line" in
+              *${{ matrix.keyboard }}*)
+                echo "Building keyboard ${line} for user ${{ github.actor }}"
+                make_command="bin/fp_build.sh -k ${line} -m ${{ github.actor }} -r"
+                echo "${make_command}"
+                $make_command
+              ;;
+            esac
           done
         continue-on-error: true
 
@@ -63,13 +68,18 @@ jobs:
           chmod +x jq
           mv jq /usr/local/sbin/
 
-          echo "Building keyboard {{ matrix.keyboard }} default firmware"
-          make_command="bin/fp_build.sh -k ${line} -r"
-          echo "${make_command}"
-          $make_command
+          keyboards=$(bash bin/fp_build.sh -l| sed s~keyboards/fingerpunch/~~)
 
+          echo "${keyboards}" | while IFS= read -r line ; do
+            case "$line" in
+              *${{ matrix.keyboard }}*)
+                echo "Building for ${line} default firmware"
+                make_command="bin/fp_build.sh -k ${line} -r"
+                echo "${make_command}"
+                $make_command
+              ;;
+            esac
           done
-        continue-on-error: true
 
       - name: Archive firmware
         uses: actions/upload-artifact@v3
