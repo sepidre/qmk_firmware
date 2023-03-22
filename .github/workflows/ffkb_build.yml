@@ -37,7 +37,8 @@ jobs:
           ref: ${{ github.ref }}
           submodules: recursive
 
-      - name: Build firmware
+      - name: Build User firmware
+        id: userbuild
         shell: bash
         run: |
           wget -q https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O jq
@@ -54,6 +55,28 @@ jobs:
               ;;
             esac
           done
+        continue-on-error: true
+
+      - name: Build Default if no User firmware
+        id: defaultbuild
+        shell: bash
+        if: steps.userbuild.outcome != 'success'
+        run: |
+          wget -q https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O jq
+          chmod +x jq
+          mv jq /usr/local/sbin/
+
+          echo "${keyboards}" | while IFS= read -r line ; do
+            case "$line" in
+              *${{ matrix.keyboard }}*)
+                echo "Building for ${line}"
+                make_command="bin/fp_build.sh -k ${line} -m ${{ github.actor }} -r"
+                echo "${make_command}"
+                $make_command
+              ;;
+            esac
+          done
+        continue-on-error: true
 
       - name: Archive firmware
         uses: actions/upload-artifact@v3
