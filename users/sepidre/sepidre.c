@@ -1,4 +1,4 @@
-#include "sepidre.h"
+#include "SepiDre.h"
 
 #ifdef PIMORONI_TRACKBALL_ENABLE
 #include "drivers/sensors/pimoroni_trackball.h"

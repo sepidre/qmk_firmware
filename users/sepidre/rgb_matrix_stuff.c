@@ -1,4 +1,4 @@
-#include "sepidre.h"
+#include "SepiDre.h"
 #include "rgb_matrix.h"
 #include "lib/lib8tion/lib8tion.h"
 extern led_config_t g_led_config;

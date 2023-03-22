@@ -1,4 +1,4 @@
-#include "sepidre.h"
+#include "SepiDre.h"
 #include "casemodes.h"
 #if defined(USERSPACE_RGBLIGHT_ENABLE)
 #include "rgb_stuff.h"
