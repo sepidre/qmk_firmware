@@ -9,7 +9,7 @@ on:
 jobs:
   gather-keyboards:
     runs-on: ubuntu-latest
-    if: github.repository != 'SepiDre/qmk_firmware'
+    #if: github.repository != 'SepiDre/qmk_firmware'
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
