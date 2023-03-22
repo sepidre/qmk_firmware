@@ -1,0 +1,36 @@
+x    v     l     c     w     | k    h    g     f    q
+i    u     a     e     o     | s    n    r     t    d
+ü    ö     ä     p     z     | b    m    y     ß    j
+           ,     Spac  NAV   | SYM  Ent  .
+
+w    g     d     f     b     | q    l    u     o    y
+r    s     t     h     k     | j    n    e     a    i
+x    c     m     p     v     | z    ü    ö     ä    ß
+           ,     Spac  NAV   | SYM  Ent  .
+
+
+
+§    &     $     !     `     | /    7    8     9    -
+~    |     (     )     ?     | *    4    5     6    +
+%    €     ;     :     -     | 0    1    2     3    =
+           ,     Spac  NAV   |      Ent  .
+
+ESC  Back  UP    DEL   CTRL  | F11  F12  Prev  Play Next
+HOME Left  Down  Right PUp   | F6   F7   F8    F9   F10
+END  Shft  Alt   Tab   PDown | F1   F2   F3    F4   F5
+           ,     Spac        | SYM  Ent  Shft
+
+ESC  NWD               CAE   | CAPS NEO  NEOS   APTv3 GME
+           BTABP TABP  F5    | CSF5 TABN BTABN       Deact Combo
+AF4              WTP         |      WTN              Act Combo
+           Reset Spac        |      Ent  Boot
+
+x    v     l     c     w     | k    h    g     f    q
+i    u     a     e     o     | s    n    r     t    d
+,    .     -     p     z     | b    m    y     ß    j
+           ,     Spac  NAV   | SYM  Ent  .
+
+ESC  Back  UP    DEL   CTRL  | F11  F12
+HOME Left  Down  Right PUp   | F6   F7   F8    F9   F10
+END  Shift ALT   Next  PDown | F1   F2   F3    F4   F5
+           ,     Spac        | SYM  Ent  .
