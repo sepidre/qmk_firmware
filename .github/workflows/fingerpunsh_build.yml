@@ -20,7 +20,8 @@ jobs:
       run: |
           content=$(bash bin/fp_build.sh -l | sed s~keyboards/fingerpunch/~~|  jq -Rsc '. / "\n" - [""]')
           content="{\"keyboard\":$content}"
-          echo "matrix=$content" >> $GITHUB_OUTPUT"
+          echo "matrix=$content" >> $GITHUB_OUTPUTS
+
 
   Build:
     needs: gather-keyboards
@@ -45,7 +46,7 @@ jobs:
           chmod +x jq
           mv jq /usr/local/sbin/
 
-          echo "Building keyboard {{ matrix.keyboard }} for user ${{ github.actor }}"
+          echo "Building keyboard {{ matrix.keyboard }} for user ${{ github.actor }} "
           make_command="bin/fp_build.sh -k {{ matrix.keyboard }} -m ${{ github.actor }} -r"
           echo "${make_command}"
           $make_command
