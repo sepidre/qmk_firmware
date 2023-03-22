@@ -20,7 +20,7 @@ jobs:
       run: |
           content=$(bash bin/fp_build.sh -l | sed s~keyboards/fingerpunch/~~|  jq -Rsc '. / "\n" - [""]')
           content="{\"keyboard\":$content}"
-          echo "matrix=${content}" >> $env:GITHUB_OUTPUT
+          echo "::set-output name=matrix::$content"
 
 
   Build:
