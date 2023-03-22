@@ -259,7 +259,7 @@ u    i     a     e     o     | s    n    r     t    d
 #define ____________________NEO2_L3___________________			DE_UE,   DE_UO,   DE_UA,   DE_P,    DE_Z
 
 #define ____________________NEO2_R1___________________			DE_K,    DE_H,    DE_G,    DE_F,    DE_Q
-#define ____________________NEO2_R2___________________			DE_S,    DE_N,    DE_R,    DE_T,    DE_D
+#define ____________________NEO2_R2___________________			DE_S,    K_NSFT,  K_RGUI,  K_TALT,  K_DCTL
 #define ____________________NEO2_R3___________________			DE_B,    DE_M,    DE_Y,    DE_SS,   DE_J
 
 // BLANK FULL LINE
