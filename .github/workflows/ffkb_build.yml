@@ -1,4 +1,4 @@
-name: Build QMK firmware
+name: Build SepiDre firmware
 on:
   push:
     branches:
@@ -9,6 +9,7 @@ on:
 jobs:
   gather-keyboards:
     runs-on: ubuntu-latest
+    if: github.repository == 'SepiDre/qmk_firmware'
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
@@ -18,7 +19,7 @@ jobs:
         ref: ${{ github.ref }}
     - id: set-matrix
       run: |
-          content=$(bash bin/fp_build.sh -l | sed s~keyboards/fingerpunch/~~|  jq -Rsc '. / "\n" - [""]')
+          content=$(bash bin/fp_build.sh -l | sed s~keyboards/fingerpunch/~~| grep ffkb |  jq -Rsc '. / "\n" - [""]')
           content="{\"keyboard\":$content}"
           echo "::set-output name=matrix::$content"
 
@@ -43,7 +44,7 @@ jobs:
           wget -q https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O jq
           chmod +x jq
           mv jq /usr/local/sbin/
-          fp_build.sh -i -k \"ffkb\" -m sepidre -r"
+          fp_build.sh -i -k \"ffkb\" -m sepidre -r
 
       - name: Archive firmware
         uses: actions/upload-artifact@v3
