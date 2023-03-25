@@ -1,5 +1,5 @@
 #pragma once
-#include "SepiDre.h"
+#include "sepidre.h"
 /*
 Since our quirky block definitions are basically a list of comma separated
 arguments, we need a wrapper in order for these definitions to be
@@ -187,14 +187,14 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define __ALPHA_THUMB_L1__ K_COMMMEH
 #define __ALPHA_THUMB_L2__ KC_SPC
-#define __ALPHA_THUMB_L3__ MO(_NUM)
-#define __ALPHA_THUMB_R1__ MO(_SYM)
+#define __ALPHA_THUMB_L3__ MO(_NAVIGATION)
+#define __ALPHA_THUMB_R1__ MO(_SYMBOLS)
 #define __ALPHA_THUMB_R2__ KC_ENT
 #define __ALPHA_THUMB_R3__ K_DOTHYPR
 
 //           Spac  NAV   | SYM  Ent
-#define __ALPHA_THUMBS_LEFT_2__                             __ALPHA_THUMB_L2__, __ALPHA_THUMB_L3__
-#define __ALPHA_THUMBS_RIGHT_2__                            __ALPHA_THUMB_R1__, __ALPHA_THUMB_R2__
+#define __ALPHA_THUMBS_LEFT_2__                             __ALPHA_THUMB_L1__, __ALPHA_THUMB_L2__
+#define __ALPHA_THUMBS_RIGHT_2__                            __ALPHA_THUMB_R2__, __ALPHA_THUMB_R3__
 // MEH/,     Spac  NAV   | SYM  Ent  HYP/.
 #define __ALPHA_THUMBS_LEFT_3__                             __ALPHA_THUMB_L1__, __ALPHA_THUMB_L2__, __ALPHA_THUMB_L3__
 #define __ALPHA_THUMBS_RIGHT_3__                            __ALPHA_THUMB_R1__, __ALPHA_THUMB_R2__, __ALPHA_THUMB_R3__
@@ -256,7 +256,7 @@ u    i     a     e     o     | s    n    r     t    d
 #define K_DCTL MT(MOD_RCTL, DE_D)
 #define ____________________NEO2_L1___________________			DE_X,    DE_V,    DE_L,    DE_C,    DE_W
 #define ____________________NEO2_L2___________________			K_UCTL,  K_IALT,  K_AGUI,  K_ESFT,  DE_O
-#define ____________________NEO2_L3___________________			DE_UE,   DE_UO,   DE_UA,   DE_P,    DE_Z
+#define ____________________NEO2_L3___________________			DE_UE,   DE_OE,   DE_AE,   DE_P,    DE_Z
 
 #define ____________________NEO2_R1___________________			DE_K,    DE_H,    DE_G,    DE_F,    DE_Q
 #define ____________________NEO2_R2___________________			DE_S,    K_NSFT,  K_RGUI,  K_TALT,  K_DCTL
@@ -308,11 +308,11 @@ AF4              WTP         |      WTN              Act Combo
            Reset Spac        |      Ent  Boot
 */
 #define ________________ADJUST_L1_________________			RGB_TOG, RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
-#define ________________ADJUST_L2_________________			_______, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO)
+#define ________________ADJUST_L2_________________			_______, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO2)
 #define ________________ADJUST_L3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, _______
 
 #define ________________ADJUST_R1_________________			RGB_TOG, RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
-#define ________________ADJUST_R2_________________			_______, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO)
+#define ________________ADJUST_R2_________________			_______, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO2)
 #define ________________ADJUST_R3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, _______
 
 // clang-format on

@@ -1,4 +1,4 @@
-SRC += sadekbaroudi.c \
+SRC += sepidre.c \
        process_records.c
 
 COMMAND_ENABLE   = no  # Commands for debug and configuration

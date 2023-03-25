@@ -1,9 +1,11 @@
 #include "hid.h"
 #include "raw_hid.h"
 #include <stdbool.h>
+#include <stdint.h>
 #include <string.h>
 #ifdef USERSPACE_RGBLIGHT_ENABLE
 #include "rgblight.h"
+
 #endif
 
 #define RAW_EPSIZE 32

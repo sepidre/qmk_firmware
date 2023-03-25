@@ -1,5 +1,5 @@
 #pragma once
-#include "SepiDre.h"
+#include "sepidre.h"
 
 #if defined(KEYBOARD_fingerpunch_arachnophobe) \
     || defined(KEYBOARD_fingerpunch_barobord) \

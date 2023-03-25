@@ -1,5 +1,5 @@
 #include "combos.h"
-#include "SepiDre.h"
+#include "sepidre.h"
 
 
 uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!

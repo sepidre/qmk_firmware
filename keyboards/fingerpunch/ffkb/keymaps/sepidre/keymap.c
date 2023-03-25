@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "SepiDre.h"
+#include "sepidre.h"
 #ifdef PIMORONI_TRACKBALL_ENABLE
 #include "drivers/sensors/pimoroni_trackball.h"
 #include "pointing_device.h"
@@ -39,9 +39,9 @@
   ) \
   LAYOUT_wrapper( \
         N_SEL_LINE,      K01,            K02,            K03,            LT(_FUNCTION, K04),     K05,                      K06,                   LT(_FUNCTION, K07),    K08,              K09,            K0A,          KC_BSLS, \
-        LCTL(KC_C),      LCTL_T(K11),    LGUI_T(K12),    LALT_T(K13),    LSFT_T(K14),            K15,                      LT(_MOUSE, K16),       RSFT_T(K17),           RALT_T(K18),      RGUI_T(K19),    RCTL_T(K1A),  LCTL(KC_V), \
+        LCTL(KC_C),      LCTL_T(K11),    LGUI_T(K12),    LALT_T(K13),    LSFT_T(K14),            K15,                      LT(_FUNCTION, K16),       RSFT_T(K17),           RALT_T(K18),      RGUI_T(K19),    RCTL_T(K1A),  LCTL(KC_V), \
         TG(_NAVIGATION), K21,            K22,            K23,            K24,                    K25,                      K26,                   K27,                   K28,              K29,            K2A,          S_ALT_TAB, \
-                                 KC_MUTE,                K33,            LT(_NAVIGATION,K34),    LT(_FUNCTION,K35),        LT(_MEDIA,K36),        LT(_SYMBOLS,K37),      K38,              LCTL(KC_BSPC), \
+                                 KC_MUTE,                K33,            LT(_NAVIGATION,K34),    LT(_FUNCTION,K35),        LT(_FUNCTION,K36),        LT(_SYMBOLS,K37),      K38,              LCTL(KC_BSPC), \
                                                                                                            N_DEL_LINE \
     )
 
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, ________________NAVIGATION_1_______________, _________________FKEYS_1___________________, _______,
         _______, ________________NAVIGATION_2_______________, _________________FKEYS_2___________________, _______,
         _______, ________________NAVIGATION_3_______________, _________________FKEYS_3___________________, _______,
-                            _______, __ALPHA_THUMBS_LEFT_3__, __ALPHA_THUMBS_RIGHT_3__ _______,
+                   _______, __ALPHA_THUMBS_LEFT_2__, _______, MO(_FUNCTION), __ALPHA_THUMBS_RIGHT_2__, _______,
                                                          _______
     ),
 
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _________________SYMBOLS_1_________________, _________________NUMPAD_1__________________, _______,
         _______, _________________SYMBOLS_2_________________, _________________NUMPAD_2__________________, _______,
         _______, _________________SYMBOLS_3_________________, _________________NUMPAD_3__________________, _______,
-                            _______, __ALPHA_THUMBS_LEFT_3__, __ALPHA_THUMBS_RIGHT_3__ _______,
+             _______, __ALPHA_THUMBS_LEFT_2__, MO(_FUNCTION), _______,__ALPHA_THUMBS_RIGHT_2__, _______,
                                                          _______
     ),
 
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, ________________ADJUST_L1_________________, ________________ADJUST_R1_________________, _______,
         _______, ________________ADJUST_L2_________________, ________________ADJUST_R2_________________, _______,
         _______, ________________ADJUST_L3_________________, ________________ADJUST_R3_________________, _______,
-                           _______, __ALPHA_THUMBS_LEFT_3__, __ALPHA_THUMBS_RIGHT_3__ _______,
+                  _______, __ALPHA_THUMBS_LEFT_2__, _______, _______, __ALPHA_THUMBS_RIGHT_2__, _______,
                                                          _______
     )
 };

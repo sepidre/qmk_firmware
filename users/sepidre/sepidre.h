@@ -21,6 +21,7 @@
 #include "eeprom.h"
 #include "wrappers.h"
 #include "process_records.h"
+#include "keymap_german.h"
 #if defined(USERSPACE_RGBLIGHT_ENABLE)
 #    include "rgb_stuff.h"
 #endif

@@ -1,4 +1,4 @@
-#include "SepiDre.h"
+#include "sepidre.h"
 #include "rgb_stuff.h"
 #include "eeprom.h"
 
