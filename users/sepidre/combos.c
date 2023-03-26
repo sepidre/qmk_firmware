@@ -1,8 +1,6 @@
 #include "combos.h"
 #include "sepidre.h"
 
-
-uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
 // Leg end
 // []   BRC
 // {}   CBR
@@ -58,7 +56,7 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
     const uint16_t PROGMEM caps_combo[] = {DE_E, DE_N, COMBO_END};
 #endif
 
-combo_t key_combos[] = {
+combo_t key_combos[COMBO_COUNT] = {
   [_BRC] = COMBO_ACTION(brc_combo),
   [_CBR] = COMBO_ACTION(cbr_combo),
   [_PRN] = COMBO_ACTION(prn_combo),
@@ -74,7 +72,7 @@ combo_t key_combos[] = {
   [_TABL] = COMBO_ACTION(tabl_combo),
   [_TABR] = COMBO_ACTION(tabr_combo),
   [_HASH] = COMBO_ACTION(hash_combo),
-  [_CAPS] = COMBO_ACTION(caps_combo),
+  //[_CAPS] = COMBO_ACTION(caps_combo)
 };
 /* COMBO_ACTION(x) is same as COMBO(x, KC_NO) */
 
@@ -155,11 +153,11 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         tap_code16(DE_HASH);
       }
       break;
-    case _CAPS:
+    /*case _CAPS:
       if (pressed) {
         tap_code16(CW_TOGG);
       }
-      break;
+      break;*/
   }
 }
 

@@ -18,6 +18,5 @@ enum combo_events {
   _TABL,
   _TABR,
   _HASH,
-  _CAPS,
-  COMBO_LENGTH
+  //_CAPS,
 };
