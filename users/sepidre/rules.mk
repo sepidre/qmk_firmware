@@ -80,17 +80,6 @@ ifeq ($(strip $(COMBO_ENABLE)), yes)
     SRC += combos.c
 endif
 
-ifeq ($(strip $(PIMORONI_TRACKBALL_ENABLE)), yes)
-    POINTING_DEVICE_ENABLE := yes
-    SRC += drivers/sensors/pimoroni_trackball.c
-    QUANTUM_LIB_SRC += i2c_master.c
-    OPT_DEFS += -DPIMORONI_TRACKBALL_ENABLE
-endif
-
-ifeq ($(strip $(HAPTIC_ENABLE)), yes)
-    SRC += haptic_stuff.c
-endif
-
-ifeq ($(strip $(POINTING_DEVICE_ENABLE)), yes)
-    SRC += pointing_stuff.c
-endif
+IMORONI_TRACKBALL_ENABLE = no
+HAPTIC_ENABLE = no
+POINTING_DEVICE_ENABLE = no

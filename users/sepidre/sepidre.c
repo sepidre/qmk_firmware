@@ -123,9 +123,6 @@ void matrix_init_user(void) {
 __attribute__((weak)) void keyboard_post_init_keymap(void) {}
 
 void keyboard_post_init_user(void) {
-    #if defined(PIMORONI_TRACKBALL_ENABLE) && !defined(USERSPACE_RGBLIGHT_ENABLE)
-    pimoroni_trackball_set_rgbw(RGB_BLUE, 0x00);
-    #endif
 #if defined(USERSPACE_RGBLIGHT_ENABLE)
     keyboard_post_init_rgb_light();
 #endif
@@ -197,14 +194,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #if defined(USERSPACE_RGBLIGHT_ENABLE)
     state = layer_state_set_rgb_light(state);
 #endif  // USERSPACE_RGBLIGHT_ENABLE
-#if defined(HAPTIC_ENABLE)
-    state = layer_state_set_haptic(state);
-#endif  // HAPTIC_ENABLE
-#if defined(POINTING_DEVICE_ENABLE)
-// all handled in keyboards/fingerpunch/fp_pointing.c now
-//    state = layer_state_set_pointing(state);
-#endif  // HAPTIC_ENABLE
-    return layer_state_set_keymap(state);
 }
 
 __attribute__((weak)) layer_state_t default_layer_state_set_keymap(layer_state_t state) { return state; }
