@@ -1,15 +1,5 @@
 #include "sepidre.h"
 
-#ifdef PIMORONI_TRACKBALL_ENABLE
-#include "drivers/sensors/pimoroni_trackball.h"
-#include "pointing_device.h"
-#include "color.h"
-#endif
-
-#ifdef POINTING_DEVICE_ENABLE
-#include "pointing_stuff.h"
-#endif
-
 userspace_config_t userspace_config;
 
 // Leader key combos - TODO move into another file?
