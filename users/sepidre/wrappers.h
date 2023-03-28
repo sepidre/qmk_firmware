@@ -6,66 +6,6 @@ arguments, we need a wrapper in order for these definitions to be
 expanded before being used as arguments to the LAYOUT_xxx macro.
 */
 
-// Since Reviung39 uses the name LAYOUT_reviung39 instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_reviung39))
-#    define LAYOUT LAYOUT_reviung39
-#endif
-
-// Since Reviung41 uses the name LAYOUT_reviung41 instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_reviung41))
-#    define LAYOUT LAYOUT_reviung41
-#endif
-
-// Since Reviung39 uses the name LAYOUT_reviung39 instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_ortho_5x12))
-#    define LAYOUT LAYOUT_ortho_5x12
-#endif
-
-// Since enigma36 uses the name LAYOUT_enigma36 instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_enigma36))
-#    define LAYOUT LAYOUT_enigma36
-#endif
-
-// Since Euclid36 uses the name LAYOUT_euclid36 instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_euclid36))
-#    define LAYOUT LAYOUT_euclid36
-#endif
-
-// Since euclid36proto uses the name LAYOUT_euclid36proto instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_euclid36proto))
-#    define LAYOUT LAYOUT_euclid36proto
-#endif
-
-// Since pteron38 uses the name LAYOUT_pteron38 instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_pteron38))
-#    define LAYOUT LAYOUT_pteron38
-#endif
-
-// Since barobordhw uses the name LAYOUT_barobordhw instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_barobordhw))
-#    define LAYOUT LAYOUT_barobordhw
-#endif
-
-// Since barobord uses the name LAYOUT_barobord instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_barobord))
-#    define LAYOUT LAYOUT_barobord
-#endif
-
-// Since barobord_byomcu uses the name LAYOUT_barobord_byomcu instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_barobord_byomcu))
-#    define LAYOUT LAYOUT_barobord_byomcu
-#endif
-
-// Since barobord uses the name LAYOUT_barobord instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_ortho_4x12))
-#    define LAYOUT LAYOUT_ortho_4x12
-#endif
-
-// Since halfdash uses the name LAYOUT_halfdash instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_halfdash))
-#    define LAYOUT LAYOUT_halfdash
-#endif
-
 // Since ffkbhw uses the name LAYOUT_ffkbhw instead of LAYOUT
 #if (!defined(LAYOUT) && defined(LAYOUT_ffkbhw))
 #    define LAYOUT LAYOUT_ffkbhw
@@ -76,93 +16,11 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #    define LAYOUT LAYOUT_ffkb
 #endif
 
-// Since bgkeeb uses the name LAYOUT_bgkeeb instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_bgkeeb))
-#    define LAYOUT LAYOUT_bgkeeb
-#endif
-
-// Since absolem uses the name LAYOUT_absolem instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_absolem))
-#    define LAYOUT LAYOUT_absolem
-#endif
-
-// Since pinkiesout uses the name LAYOUT_pinkiesout instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_pinkiesout))
-#    define LAYOUT LAYOUT_pinkiesout
-#endif
-
-// Since rockon uses the name LAYOUT_rockon instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_rockon))
-#    define LAYOUT LAYOUT_rockon
-#endif
-
-// Since rockon_bp uses the name LAYOUT_rockon_bp instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_rockon_bp))
-#    define LAYOUT LAYOUT_rockon_bp
-#endif
-
-// Since luakeeb uses the name LAYOUT_luakeeb instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_luakeeb))
-#    define LAYOUT LAYOUT_luakeeb
-#endif
-
-// Since sweeeeep uses the name LAYOUT_sweeeeep instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_sweeeeep))
-#    define LAYOUT LAYOUT_sweeeeep
-#endif
-
-// Since bigbarobord uses the name LAYOUT_bigbarobord instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_bigbarobord))
-#    define LAYOUT LAYOUT_bigbarobord
-#endif
-
-// Since arachnophobe uses the name LAYOUT_arachnophobe instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_arachnophobe))
-#    define LAYOUT LAYOUT_arachnophobe
-#endif
-
-// Since ximi uses the name LAYOUT_ximi instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_ximi))
-#    define LAYOUT LAYOUT_ximi
-#endif
-
-// Since badwings uses the name LAYOUT_badwings instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_badwings))
-#    define LAYOUT LAYOUT_badwings
-#endif
-
-// Since fflx uses the name LAYOUT_fflx instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_fflx))
-#    define LAYOUT LAYOUT_fflx
-#endif
-
-// Since KLOR uses the name LAYOUT_saegewerk instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_saegewerk))
-#    define LAYOUT LAYOUT_saegewerk
-#endif
-
-// Since fpm101 uses the name LAYOUT_fpm101 instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_fpm101))
-#    define LAYOUT LAYOUT_fpm101
-#endif
-
-// Since zazu uses the name LAYOUT_zazu instead of LAYOUT
-#if (!defined(LAYOUT) && defined(LAYOUT_zazu))
-#    define LAYOUT LAYOUT_zazu
-#endif
-
 // clang-format off
 #define LAYOUT_ergodox_wrapper(...)          LAYOUT_ergodox(__VA_ARGS__)
 #define LAYOUT_ergodox_pretty_wrapper(...)   LAYOUT_ergodox_pretty(__VA_ARGS__)
 #define KEYMAP_wrapper(...)                  LAYOUT(__VA_ARGS__)
 #define LAYOUT_wrapper(...)                  LAYOUT(__VA_ARGS__)
-#define LAYOUT_ortho_4x12_wrapper(...)       LAYOUT_ortho_4x12(__VA_ARGS__)
-#define LAYOUT_ortho_5x12_wrapper(...)       LAYOUT_ortho_5x12(__VA_ARGS__)
-#define LAYOUT_gergo_wrapper(...)            LAYOUT_gergo(__VA_ARGS__)
-#define LAYOUT_split_3x6_3_wrapper(...)      LAYOUT_split_3x6_3(__VA_ARGS__)
-#define LAYOUT_reviung39_wrapper(...)        LAYOUT_reviung39(__VA_ARGS__)
-#define LAYOUT_pteron38_wrapper(...)         LAYOUT_pteron38(__VA_ARGS__)
-#define LAYOUT_ffkbhw_wrapper(...)           LAYOUT_ffkbhw(__VA_ARGS__)
 #define LAYOUT_ffkb_wrapper(...)             LAYOUT_ffkb(__VA_ARGS__)
 
 /*

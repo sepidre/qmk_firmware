@@ -1,31 +1,10 @@
 #pragma once
 #include "sepidre.h"
 
-#if defined(KEYBOARD_fingerpunch_arachnophobe) \
-    || defined(KEYBOARD_fingerpunch_barobord) \
-    || defined(KEYBOARD_fingerpunch_barobord_byomcu) \
-    || defined(KEYBOARD_fingerpunch_bgkeeb) \
-    || defined(KEYBOARD_fingerpunch_bigbarobord) \
-    || defined(KEYBOARD_fingerpunch_euclid36) \
-    || defined(KEYBOARD_fingerpunch_euclid36_proto) \
-    || defined(KEYBOARD_fingerpunch_ffkb) \
+#if defined(KEYBOARD_fingerpunch_ffkb) \
     || defined(KEYBOARD_fingerpunch_ffkb_byomcu_v1) \
     || defined(KEYBOARD_fingerpunch_ffkb_byomcu_v2) \
-    || defined(KEYBOARD_fingerpunch_ffkb_byomcu_v3) \
-    || defined(KEYBOARD_fingerpunch_fflx) \
-    || defined(KEYBOARD_fingerpunch_fpm101) \
-    || defined(KEYBOARD_fingerpunch_luakeeb) \
-    || defined(KEYBOARD_fingerpunch_pinkiesout_v1) \
-    || defined(KEYBOARD_fingerpunch_pinkiesout_v2) \
-    || defined(KEYBOARD_fingerpunch_rockon_v1) \
-    || defined(KEYBOARD_fingerpunch_rockon_v2) \
-    || defined(KEYBOARD_fingerpunch_rockon_v3) \
-    || defined(KEYBOARD_fingerpunch_rockon_bp) \
-    || defined(KEYBOARD_fingerpunch_sweeeeep) \
-    || defined(KEYBOARD_fingerpunch_ximi) \
-    || defined(KEYBOARD_fingerpunch_personal_badwings) \
-    || defined(KEYBOARD_fingerpunch_personal_klor) \
-    || defined(KEYBOARD_fingerpunch_personal_zazu)
+    || defined(KEYBOARD_fingerpunch_ffkb_byomcu_v3)
 #    define PLACEHOLDER_SAFE_RANGE FP_SAFE_RANGE
 #elif defined(KEYMAP_SAFE_RANGE)
 #    define PLACEHOLDER_SAFE_RANGE KEYMAP_SAFE_RANGE
@@ -68,9 +47,6 @@ enum userspace_custom_keycodes {
 
 bool process_record_secrets(uint16_t keycode, keyrecord_t *record);
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
-#if defined(MOUSEKEY_ENABLE) || defined(POINTING_DEVICE_ENABLE)
-report_mouse_t pointing_device_task_user(report_mouse_t mouse_report);
-#endif
 
 #define KC_SEC1 KC_SECRET_1
 #define KC_SEC2 KC_SECRET_2
