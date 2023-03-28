@@ -91,7 +91,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
       return OLED_ROTATION_180;
 }
 
-/*
+
 static void render_logo(void) {
     // ffkb logo, 128x32px
     static const char PROGMEM ffkb_logo[] = {
@@ -198,7 +198,7 @@ static void render_logo(void) {
     oled_write_raw_P(ffkb_logo, sizeof(ffkb_logo));
 
 }
-*/
+
 
 
 static void render_status(void) {
