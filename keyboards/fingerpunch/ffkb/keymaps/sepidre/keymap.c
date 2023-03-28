@@ -96,7 +96,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
       return OLED_ROTATION_180;
 }
 
-
+/*
 static void render_logo(void) {
     // ffkb logo, 128x32px
     static const char PROGMEM ffkb_logo[] = {
@@ -203,17 +203,17 @@ static void render_logo(void) {
     oled_write_raw_P(ffkb_logo, sizeof(ffkb_logo));
 
 }
+*/
 
 
-/*
 static void render_status(void) {
     oled_write_P(PSTR("    Layer: "), false);
     switch (get_highest_layer(layer_state|default_layer_state)) {
-        case _ALPHA_ALT:
-            oled_write_P(PSTR("Alphalt   "), false);
+        case _NEO2:
+            oled_write_P(PSTR("Neo 2.    "), false);
             break;
-        case _ALPHA:
-            oled_write_P(PSTR("Alpha     "), false);
+        case _APTv3:
+            oled_write_P(PSTR("APTv3     "), false);
             break;
         case _NAVIGATION:
             oled_write_P(PSTR("Nav       "), false);
@@ -223,12 +223,6 @@ static void render_status(void) {
             break;
         case _FUNCTION:
             oled_write_P(PSTR("Function  "), false);
-            break;
-        case _MEDIA:
-            oled_write_P(PSTR("Media     "), false);
-            break;
-        case _MOUSE:
-            oled_write_P(PSTR("Mouse     "), false);
             break;
         default:
             oled_write_P(PSTR("Unkn      "), false);
@@ -270,13 +264,13 @@ static void render_status(void) {
     };
     oled_write_raw_P(ffkb_logo_small, sizeof(ffkb_logo_small));
 }
-*/
 
-/*
+
+
 static void render_logo_text(void) {
     oled_write_P(PSTR("ffkb"), false);
 }
-*/
+
 
 bool oled_task_user(void) {
     // If you don't want to display the logo, switch
@@ -290,42 +284,4 @@ bool oled_task_user(void) {
     return true;
 }
 
-#endif
-
-
-#if !defined(RGBLIGHT_ENABLE) && defined(PIMORONI_TRACKBALL_ENABLE)
-layer_state_t layer_state_set_keymap(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-    case _ALPHA_ALT:
-        if (is_caps_lock_on) {
-            pimoroni_trackball_set_rgbw(RGB_CYAN, 0x00);
-        } else {
-            pimoroni_trackball_set_rgbw(RGB_BLUE, 0x00);
-        }
-        break;
-    case _NAVIGATION:
-        pimoroni_trackball_set_rgbw(RGB_GREEN, 0x00);
-        break;
-    case _SYMBOLS:
-        pimoroni_trackball_set_rgbw(RGB_PURPLE, 0x00);
-        break;
-    case _FUNCTION:
-        pimoroni_trackball_set_rgbw(RGB_YELLOW, 0x00);
-        break;
-    case _MEDIA:
-        pimoroni_trackball_set_rgbw(RGB_ORANGE, 0x00);
-        break;
-    case _MOUSE:
-        pimoroni_trackball_set_rgbw(RGB_WHITE, 0x00);
-        break;
-    default: //  for any other layers, or the default layer
-        if (is_caps_lock_on) {
-            pimoroni_trackball_set_rgbw(RGB_CYAN, 0x00);
-        } else {
-            pimoroni_trackball_set_rgbw(RGB_BLUE, 0x00);
-        }
-        break;
-    }
-  return state;
-}
 #endif
