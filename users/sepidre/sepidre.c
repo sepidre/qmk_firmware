@@ -184,6 +184,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #if defined(USERSPACE_RGBLIGHT_ENABLE)
     state = layer_state_set_rgb_light(state);
 #endif  // USERSPACE_RGBLIGHT_ENABLE
+return layer_state_set_keymap(state);
 }
 
 __attribute__((weak)) layer_state_t default_layer_state_set_keymap(layer_state_t state) { return state; }
