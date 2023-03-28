@@ -26,22 +26,6 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     #endif
                 }
                 break;
-            case _MEDIA:
-                // zoom in and out
-                if (clockwise) {
-                    #ifdef ENCODERS_A_REVERSE
-                    tap_code16(C(KC_MINS));
-                    #else
-                    tap_code16(C(S(KC_EQL)));
-                    #endif
-                } else {
-                    #ifdef ENCODERS_A_REVERSE
-                    tap_code16(C(S(KC_EQL)));
-                    #else
-                    tap_code16(C(KC_MINS));
-                    #endif
-                }
-                break;
             default:
                 // volume up and down
                 if (clockwise){
