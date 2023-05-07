@@ -66,10 +66,10 @@ void shutdown_user(void) {
     rgblight_mode_noeeprom(1);
     rgblight_setrgb_red();
 #endif
-// #ifdef RGB_MATRIX_ENABLE
-//     rgb_matrix_set_color_all(0xFF, 0x00, 0x00);
-//     rgb_matrix_update_pwm_buffers();
-// #endif
+#ifdef RGB_MATRIX_ENABLE
+     rgb_matrix_set_color_all(0xFF, 0x00, 0x00);
+     rgb_matrix_update_pwm_buffers();
+#endif
     shutdown_keymap();
 }
 
@@ -96,9 +96,9 @@ void matrix_scan_user(void) {
     matrix_scan_rgb_light();
 #endif  // USERSPACE_RGBLIGHT_ENABLE
 
-// #if defined(RGB_MATRIX_ENABLE)
-//     matrix_scan_rgb_matrix();
-// #endif
+#if defined(RGB_MATRIX_ENABLE)
+     matrix_scan_rgb_matrix();
+#endif
 
 #if defined(LEADER_ENABLE)
     matrix_scan_leader_key();

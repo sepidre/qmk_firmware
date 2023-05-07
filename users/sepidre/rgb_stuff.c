@@ -3,11 +3,6 @@
 #include "eeprom.h"
 
 /* NO USERSPACE RGB
-#ifdef PIMORONI_TRACKBALL_ENABLE
-#include "drivers/sensors/pimoroni_trackball.h"
-#include "pointing_device.h"
-#include "color.h"
-#endif
 
 bool    has_initialized;
 
@@ -103,9 +98,6 @@ layer_state_t layer_state_set_rgb_light(layer_state_t state) {
             case _ALPHA:
                 if (userspace_config.rgb_base_layer_override) { // If the base layer override is enabled, use that
                     rgblight_set_hsv_and_mode(userspace_config.hue, userspace_config.sat, userspace_config.val, userspace_config.mode);
-                    #ifdef PIMORONI_TRACKBALL_ENABLE
-                    trackball_set_rgbw(RGB_BLUE, 0x00);
-                    #endif
                 } else { // if base layer override is disabled, always show the base setting
                     // This allows you to override the base layer rgb behavior for a given keyboard by defining this function in the keymap.c
                     if (!rgb_base_layer_keymap(state)) {
@@ -124,58 +116,19 @@ layer_state_t layer_state_set_rgb_light(layer_state_t state) {
                     }
                 }
                 break;
-            case _ALPHA_ALT:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_WHITE, 0x00);
-                #endif
+            case _APTv3:
                 rgblight_set_hsv_and_mode(10, 10, 255, mode); // white
                 break;
             case _NAVIGATION:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_GREEN, 0x00);
-                #endif
                 rgblight_set_hsv_and_mode(HSV_GREEN, mode);
                 break;
             case _SYMBOLS:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_PURPLE, 0x00);
-                #endif
                 rgblight_set_hsv_and_mode(HSV_PURPLE, mode);
                 break;
             case _FUNCTION:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_YELLOW, 0x00);
-                #endif
                 rgblight_set_hsv_and_mode(HSV_YELLOW, mode);
                 break;
-            case _MOUSE:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_CYAN, 0x00);
-                #endif
-                rgblight_set_hsv_and_mode(HSV_CYAN, mode);
-                break;
-            case _MEDIA:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_ORANGE, 0x00);
-                #endif
-                rgblight_set_hsv_and_mode(16, 255, 255, mode); // orange
-                break;
-            case _GAME:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_RED, 0x00);
-                #endif
-                rgblight_set_hsv_and_mode(HSV_RED, mode);
-                break;
-            case _KICAD:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_SPRINGGREEN, 0x00);
-                #endif
-                rgblight_set_hsv_and_mode(RGB_SPRINGGREEN, mode);
-                break;
             default:
-                #ifdef PIMORONI_TRACKBALL_ENABLE
-                trackball_set_rgbw(RGB_SPRINGGREEN, 0x00);
-                #endif
                 rgblight_set_hsv_and_mode(HSV_SPRINGGREEN, mode);
                 break;
         }
@@ -184,4 +137,5 @@ layer_state_t layer_state_set_rgb_light(layer_state_t state) {
 
     return state;
 }
+
 */

@@ -17,6 +17,7 @@
 #ifdef RGB_MATRIX_ENABLE
 
 // 6 column config
+/*
 led_config_t g_led_config = { {
     {2,      3,      8,      9,  14, 15, 26, 27, 32, 33,     38,     39},
     {1,      4,      7,      10, 13, 16, 25, 28, 31, 34,     37,     40},
@@ -33,10 +34,10 @@ led_config_t g_led_config = { {
     4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
     4, 4, 4, 1, 1, 1
 } };
-
+*/
 
 // 5 column config
-/*
+
 led_config_t g_led_config = { {
     {NO_LED, 0,      5,      6,  11, 12, 23, 24, 29, 30,     35,     NO_LED},
     {NO_LED, 1,      4,      7,  10, 13, 22, 25, 28, 31,     34,     NO_LED},
@@ -53,7 +54,7 @@ led_config_t g_led_config = { {
     1, 1, 1, 4, 4, 4, 4, 4, 4,
     4, 4, 4, 4, 4, 4, 4, 4, 4
 } };
-*/
+
 
 #endif
 

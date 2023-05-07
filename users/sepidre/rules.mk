@@ -1,23 +1,24 @@
 SRC += sepidre.c \
        process_records.c
 
-COMMAND_ENABLE   = no  # Commands for debug and configuration
-CONSOLE_ENABLE = yes         # Console for debug
-UNICODE_ENABLE   = no  # Unicode
-SWAP_HANDS_ENABLE= no  # Allow swapping hands of keyboard
-BACKLIGHT_ENABLE = no
-NKRO_ENABLE      = yes
-RAW_ENABLE       = yes
-CASEMODES_ENABLE = yes
-COMBO_ENABLE     = yes
-LTO_ENABLE       = no
-
+COMMAND_ENABLE   			= no  # Commands for debug and configuration
+CONSOLE_ENABLE 				= no  # Console for debug
+UNICODE_ENABLE   			= no  # Unicode
+SWAP_HANDS_ENABLE			= no  # Allow swapping hands of keyboard
+BACKLIGHT_ENABLE 			= no
+NKRO_ENABLE      			= yes
+RAW_ENABLE       			= yes
+CASEMODES_ENABLE 			= yes
+COMBO_ENABLE     			= yes
+LTO_ENABLE       			= no
+RGB_MATRIX_ENABLE			= yes
+FP_EVQ_UNDER_PALMS			= yes
 # UNCOMMENT TO DISABLE MACROS
-#EXTRAFLAGS     += -flto
+EXTRAFLAGS     				=
 # UNCOMMENT TO DISABLE MACROS
 
-SPACE_CADET_ENABLE    = no
-GRAVE_ESC_ENABLE      = no
+SPACE_CADET_ENABLE    		= no
+GRAVE_ESC_ENABLE      		= no
 
 RGB_MATRIX_REACTIVE_LAYERS := no
 ifeq ($(strip $(RGB_MATRIX_REACTIVE_LAYERS)), yes)
