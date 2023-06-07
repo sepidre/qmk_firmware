@@ -17,16 +17,18 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
+
+#include "keymap_german.h"
 #include "version.h"
 #include "eeprom.h"
 #include "wrappers.h"
-#include "process_records.h"
-#include "keymap_german.h"
-#if defined(USERSPACE_RGBLIGHT_ENABLE)
-#    include "rgb_stuff.h"
+#include "combos.h"
+//#include "process_records.h"
+#ifdef USERSPACE_RGBLIGHT_ENABLE
+#include "rgb_stuff.h"
 #endif
-#if defined(RGB_MATRIX_ENABLE)
-#    include "rgb_matrix_stuff.h"
+#ifdef RGB_MATRIX_ENABLE
+#include "matrixrgb_stuff.h"
 #endif
 
 /* Define layer names */
@@ -35,7 +37,9 @@ enum userspace_layers {
     _APTv3,
     _NAVIGATION,
     _SYMBOLS,
-    _FUNCTION
+    _FUNCTION,
+    _GME,
+    _WPN
 };
 
 void          press_super_alt_tab(bool shift);

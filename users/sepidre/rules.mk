@@ -1,5 +1,5 @@
 SRC += sepidre.c \
-       process_records.c
+#      process_records.c
 
 COMMAND_ENABLE   			= no  # Commands for debug and configuration
 CONSOLE_ENABLE 				= no  # Console for debug
@@ -8,11 +8,12 @@ SWAP_HANDS_ENABLE			= no  # Allow swapping hands of keyboard
 BACKLIGHT_ENABLE 			= no
 NKRO_ENABLE      			= yes
 RAW_ENABLE       			= yes
-CASEMODES_ENABLE 			= yes
+CASEMODES_ENABLE 			= no
 COMBO_ENABLE     			= yes
 LTO_ENABLE       			= no
 RGB_MATRIX_ENABLE			= yes
 FP_EVQ_UNDER_PALMS			= yes
+OLED_ENABLE					= yes
 # UNCOMMENT TO DISABLE MACROS
 EXTRAFLAGS     				=
 # UNCOMMENT TO DISABLE MACROS

@@ -103,6 +103,7 @@ u    i     a     e     o     | s    n    r     t    d
 */
 // HomeRow
 // Left
+
 #define K_UCTL MT(MOD_LCTL, DE_U)
 #define K_IALT MT(MOD_LALT, DE_I)
 #define K_AGUI MT(MOD_LGUI, DE_A)
@@ -115,10 +116,17 @@ u    i     a     e     o     | s    n    r     t    d
 #define ____________________NEO2_L1___________________			DE_X,    DE_V,    DE_L,    DE_C,    DE_W
 #define ____________________NEO2_L2___________________			K_UCTL,  K_IALT,  K_AGUI,  K_ESFT,  DE_O
 #define ____________________NEO2_L3___________________			DE_UE,   DE_OE,   DE_AE,   DE_P,    DE_Z
-
 #define ____________________NEO2_R1___________________			DE_K,    DE_H,    DE_G,    DE_F,    DE_Q
 #define ____________________NEO2_R2___________________			DE_S,    K_NSFT,  K_RGUI,  K_TALT,  K_DCTL
 #define ____________________NEO2_R3___________________			DE_B,    DE_M,    DE_Y,    DE_SS,   DE_J
+
+#define ____________________GAME_L2___________________			DE_U,  DE_I,  DE_A,  DE_E,  DE_O
+#define ____________________GAME_L3___________________			DE_COMM, DE_DOT, DE_COLN, DE_P,  DE_Z
+#define ____________________GAME_R2___________________			DE_S,  DE_N,  DE_R,  DE_T,  DE_D
+
+#define ________________WEAPON_1_______________			DE_K, KC_BSPC, KC_UP,   KC_DEL,  KC_LCTL
+#define ________________WEAPON_2_______________			DE_Q, KC_LEFT, KC_DOWN, KC_RGHT, DE_T
+#define ________________WEAPON_3_______________			DE_B, KC_LSFT, KC_LALT, KC_TAB,  DE_J
 
 // BLANK FULL LINE
 #define _____________________BLANK____________________			_______, _______, _______, _______, _______
@@ -143,11 +151,14 @@ END  Shift ALT   Next  PDown
 
 /* SYMBOLS
 §    &     $     !     `
+§&$!`
 ~    |     (     )     ?
+±^()?
 %    €     ;     :     -
+%€;:-
 */
 #define _________________SYMBOLS_1_________________			DE_SECT, DE_AMPR, DE_DLR,  DE_EXLM, DE_GRV
-#define _________________SYMBOLS_2_________________			DE_TILD, DE_PIPE, DE_LPRN, DE_RPRN, DE_QUES
+#define _________________SYMBOLS_2_________________			DE_TILD, DE_LABK, DE_LPRN, DE_RPRN, DE_QUES
 #define _________________SYMBOLS_3_________________			DE_PERC, DE_EURO, DE_SCLN, DE_COLN, DE_MINS
 
 /* FUNCTION
@@ -167,10 +178,10 @@ AF4              WTP         |      WTN              Act Combo
 */
 #define ________________ADJUST_L1_________________			RGB_TOG, RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
 #define ________________ADJUST_L2_________________			_______, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO2)
-#define ________________ADJUST_L3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, _______
+#define ________________ADJUST_L3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, TG(_GME)
 
 #define ________________ADJUST_R1_________________			RGB_TOG, RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
 #define ________________ADJUST_R2_________________			_______, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO2)
-#define ________________ADJUST_R3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, _______
+#define ________________ADJUST_R3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, TG(_GME)
 
 // clang-format on

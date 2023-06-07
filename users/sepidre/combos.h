@@ -1,6 +1,8 @@
 #pragma once
 
 #include QMK_KEYBOARD_H
+#include "keymap_german.h"
+#include "wrappers.h"
 
 enum combo_events {
   _BRC,
@@ -18,5 +20,5 @@ enum combo_events {
   _TABL,
   _TABR,
   _HASH,
-  //_CAPS,
+  //_CAPS
 };

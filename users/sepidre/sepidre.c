@@ -1,5 +1,7 @@
 #include "sepidre.h"
 
+#include "matrixrgb_stuff.h"
+
 userspace_config_t userspace_config;
 
 // Leader key combos - TODO move into another file?
@@ -47,9 +49,9 @@ void keyboard_post_init_user(void) {
 #if defined(USERSPACE_RGBLIGHT_ENABLE)
     keyboard_post_init_rgb_light();
 #endif
-// #if defined(RGB_MATRIX_ENABLE)
-//     keyboard_post_init_rgb_matrix();
-// #endif
+#if defined(RGB_MATRIX_ENABLE)
+  //   keyboard_post_init_rgb_matrix();
+#endif
 // #if defined(POINTING_DEVICE_ENABLE) && defined(POINTING_DEVICE_COMBINED)
 //     pointing_device_set_cpi_combined_defaults();
 // #endif
@@ -97,7 +99,7 @@ void matrix_scan_user(void) {
 #endif  // USERSPACE_RGBLIGHT_ENABLE
 
 #if defined(RGB_MATRIX_ENABLE)
-     matrix_scan_rgb_matrix();
+  //   matrix_scan_rgb_matrix();
 #endif
 
 #if defined(LEADER_ENABLE)

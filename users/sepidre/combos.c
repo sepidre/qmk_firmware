@@ -1,5 +1,5 @@
+
 #include "combos.h"
-#include "sepidre.h"
 
 // Leg end
 // []   BRC
@@ -20,7 +20,7 @@
 // CAPS CAPS
 
 // COMBOS - https://beta.docs.qmk.fm/using-qmk/software-features/feature_combo
-#ifdef APTV3
+/*
     const uint16_t PROGMEM brc_combo[] = {DE_D, DE_F, COMBO_END};
     const uint16_t PROGMEM cbr_combo[] = {DE_M, DE_P, COMBO_END};
     const uint16_t PROGMEM prn_combo[] = {DE_UE, DE_OE, COMBO_END};
@@ -37,24 +37,23 @@
     const uint16_t PROGMEM tabr_combo[] = {DE_N, DE_E, COMBO_END};
     const uint16_t PROGMEM hash_combo[] = {DE_E, DE_A, COMBO_END};
     const uint16_t PROGMEM caps_combo[] = {DE_H, DE_N, COMBO_END};
-#else
-    const uint16_t PROGMEM brc_combo[] = {DE_L, DE_C, COMBO_END};
-    const uint16_t PROGMEM cbr_combo[] = {DE_AE, DE_P, COMBO_END};
-    const uint16_t PROGMEM prn_combo[] = {DE_M, DE_Y, COMBO_END};
-    const uint16_t PROGMEM abk_combo[] = {DE_H, DE_G, COMBO_END};
-    const uint16_t PROGMEM at_combo[] = {DE_I, DE_A, COMBO_END};
-    const uint16_t PROGMEM dquo_combo[] = {DE_V, DE_L, COMBO_END};
-    const uint16_t PROGMEM quo_combo[] = {DE_G, DE_F, COMBO_END};
-    const uint16_t PROGMEM under_combo[] = {DE_C, DE_W, COMBO_END};
-    const uint16_t PROGMEM minus_combo[] = {DE_K, DE_H, COMBO_END};
-    const uint16_t PROGMEM circ_combo[] = {DE_E, DE_O, COMBO_END};
-    const uint16_t PROGMEM slsh_combo[] = {DE_OE, DE_AE, COMBO_END};
-    const uint16_t PROGMEM bsls_combo[] = {DE_Y, DE_SS, COMBO_END};
-    const uint16_t PROGMEM tabl_combo[] = {DE_A, DE_E, COMBO_END};
-    const uint16_t PROGMEM tabr_combo[] = {DE_N, DE_R, COMBO_END};
-    const uint16_t PROGMEM hash_combo[] = {DE_R, DE_T, COMBO_END};
-    const uint16_t PROGMEM caps_combo[] = {DE_E, DE_N, COMBO_END};
-#endif
+*/
+const uint16_t PROGMEM brc_combo[] = {DE_L, DE_C, COMBO_END};
+const uint16_t PROGMEM cbr_combo[] = {DE_AE, DE_P, COMBO_END};
+const uint16_t PROGMEM prn_combo[] = {DE_M, DE_Y, COMBO_END};
+const uint16_t PROGMEM abk_combo[] = {DE_H, DE_G, COMBO_END};
+const uint16_t PROGMEM at_combo[] = {K_IALT, K_AGUI, COMBO_END};
+const uint16_t PROGMEM dquo_combo[] = {DE_V, DE_L, COMBO_END};
+const uint16_t PROGMEM quo_combo[] = {DE_G, DE_F, COMBO_END};
+const uint16_t PROGMEM under_combo[] = {DE_C, DE_W, COMBO_END};
+const uint16_t PROGMEM minus_combo[] = {DE_K, DE_H, COMBO_END};
+const uint16_t PROGMEM circ_combo[] = {K_ESFT, DE_O, COMBO_END};
+const uint16_t PROGMEM slsh_combo[] = {DE_OE, DE_AE, COMBO_END};
+const uint16_t PROGMEM bsls_combo[] = {DE_Y, DE_SS, COMBO_END};
+const uint16_t PROGMEM tabl_combo[] = {K_AGUI, K_ESFT, COMBO_END};
+const uint16_t PROGMEM tabr_combo[] = {K_NSFT, K_RGUI, COMBO_END};
+const uint16_t PROGMEM hash_combo[] = {K_RGUI, K_TALT, COMBO_END};
+const uint16_t PROGMEM caps_combo[] = {K_ESFT, K_NSFT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [_BRC] = COMBO_ACTION(brc_combo),
@@ -80,25 +79,29 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
     case _BRC:
       if (pressed) {
-        SEND_STRING("[]");
+        tap_code16(DE_LBRC);
+        tap_code16(DE_RBRC);
         tap_code16(KC_LEFT);
       }
       break;
     case _CBR:
       if (pressed) {
-        SEND_STRING("{}");
+        tap_code16(DE_LCBR);
+        tap_code16(DE_RCBR);
         tap_code16(KC_LEFT);
       }
       break;
     case _PRN:
       if (pressed) {
-        SEND_STRING("()");
+        tap_code16(DE_LPRN);
+        tap_code16(DE_RPRN);
         tap_code16(KC_LEFT);
       }
       break;
     case _ABK:
       if (pressed) {
-        SEND_STRING("<>");
+        tap_code16(DE_CIRC);
+        tap_code16(DE_DEG);
         tap_code16(KC_LEFT);
       }
       break;
@@ -129,7 +132,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       break;
     case _CIRC:
       if (pressed) {
-        tap_code16(DE_CIRC);
+        tap_code16(KC_NUBS);
       }
       break;
     case _SLSH:
