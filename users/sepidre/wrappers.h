@@ -145,20 +145,20 @@ END  Shift ALT   Next  PDown
 *    4    5     6    +
 0    1    2     3    =
 */
-#define _________________NUMPAD_1__________________			KC_SLSH, KC_7, KC_8, KC_9, KC_MINS
-#define _________________NUMPAD_2__________________			KC_ASTR, KC_4, KC_5, KC_6, KC_PLUS
-#define _________________NUMPAD_3__________________			KC_0,    KC_1, KC_2, KC_3, KC_EQL
+#define _________________NUMPAD_1__________________			DE_SLSH, KC_7, KC_8, KC_9, DE_MINS
+#define _________________NUMPAD_2__________________			DE_ASTR, KC_4, KC_5, KC_6, DE_PLUS
+#define _________________NUMPAD_3__________________			KC_0,    KC_1, KC_2, KC_3, DE_EQL
 
 /* SYMBOLS
 §    &     $     !     `
 §&$!`
 ~    |     (     )     ?
-±^()?
+~^()?
 %    €     ;     :     -
 %€;:-
 */
 #define _________________SYMBOLS_1_________________			DE_SECT, DE_AMPR, DE_DLR,  DE_EXLM, DE_GRV
-#define _________________SYMBOLS_2_________________			DE_TILD, DE_LABK, DE_LPRN, DE_RPRN, DE_QUES
+#define _________________SYMBOLS_2_________________			DE_TILD, ALGR(DE_CIRC), DE_LPRN, DE_RPRN, DE_QUES
 #define _________________SYMBOLS_3_________________			DE_PERC, DE_EURO, DE_SCLN, DE_COLN, DE_MINS
 
 /* FUNCTION
