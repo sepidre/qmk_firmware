@@ -10,6 +10,8 @@
         "**/*.uf2": true
     },
     "files.associations": {
+        "*.log-viewer": "lnlog",
+        "*.dtsi": "c",
         "*.h": "c",
         "*.c": "c",
         "*.inc": "c",
@@ -18,7 +20,8 @@
         "xstddef": "c",
         "type_traits": "c",
         "utility": "c",
-        "ranges": "c"
+        "ranges": "c",
+        "typeinfo": "c"
     },
     "[markdown]": {
         "editor.trimAutoWhitespace": false,
@@ -28,5 +31,6 @@
     "[json]": {
 	    "editor.formatOnSave": false
     },
-    "C_Cpp.dimInactiveRegions": false
+    "C_Cpp.dimInactiveRegions": false,
+    "C_Cpp.errorSquiggles": "disabled"
 }

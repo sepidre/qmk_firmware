@@ -181,7 +181,7 @@ AF4              WTP         |      WTN              Act Combo
 #define ________________ADJUST_L3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, TG(_GME)
 
 #define ________________ADJUST_R1_________________			RGB_TOG, RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
-#define ________________ADJUST_R2_________________			_______, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO2)
-#define ________________ADJUST_R3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, TG(_GME)
+#define ________________ADJUST_R2_________________			QK_MAGIC_SWAP_CTL_GUI, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO2)
+#define ________________ADJUST_R3_________________			QK_MAGIC_TOGGLE_CTL_GUI, RGB_HUD, RGB_SAD, RGB_VAD, TG(_GME)
 
 // clang-format on

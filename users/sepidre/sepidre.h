@@ -23,7 +23,7 @@
 #include "eeprom.h"
 #include "wrappers.h"
 #include "combos.h"
-//#include "process_records.h"
+#include "process_records.h"
 #ifdef USERSPACE_RGBLIGHT_ENABLE
 #include "rgb_stuff.h"
 #endif
@@ -55,6 +55,11 @@ void          eeconfig_init_keymap(void);
 bool          hasAllBitsInMask(uint8_t value, uint8_t mask);
 
 // clang-format off
+typedef enum {
+  _WIN  = 0,
+  _MAC
+} CurrentOS;
+
 typedef union {
     uint32_t raw;
     struct {
