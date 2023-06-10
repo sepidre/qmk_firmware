@@ -125,8 +125,8 @@ u    i     a     e     o     | s    n    r     t    d
 #define ____________________GAME_R2___________________			DE_S,  DE_N,  DE_R,  DE_T,  DE_D
 
 #define ________________WEAPON_1_______________			DE_K, KC_BSPC, KC_UP,   KC_DEL,  KC_LCTL
-#define ________________WEAPON_2_______________			DE_Q, KC_LEFT, KC_DOWN, KC_RGHT, DE_T
-#define ________________WEAPON_3_______________			DE_B, KC_LSFT, KC_LALT, KC_TAB,  DE_J
+#define ________________WEAPON_2_______________			DE_Q, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP
+#define ________________WEAPON_3_______________			DE_B, KC_LSFT, DE_J,    DE_T,    KC_PGDN
 
 // BLANK FULL LINE
 #define _____________________BLANK____________________			_______, _______, _______, _______, _______
