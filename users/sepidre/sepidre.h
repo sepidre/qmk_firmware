@@ -24,6 +24,7 @@
 #include "wrappers.h"
 #include "combos.h"
 #include "process_records.h"
+#include "encoder_stuff.h"
 #ifdef USERSPACE_RGBLIGHT_ENABLE
 #include "rgb_stuff.h"
 #endif

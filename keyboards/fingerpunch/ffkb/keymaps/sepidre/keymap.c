@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _________________SYMBOLS_1_________________, _________________NUMPAD_1__________________, _______,
         _______, _________________SYMBOLS_2_________________, _________________NUMPAD_2__________________, _______,
         _______, _________________SYMBOLS_3_________________, _________________NUMPAD_3__________________, _______,
-             _______, __ALPHA_THUMBS_LEFT_2__, MO(_FUNCTION), _______, __ALPHA_THUMBS_RIGHT_2__, KC_LSFT,
+             _______, __ALPHA_THUMBS_LEFT_2__, MO(_FUNCTION), _______, __ALPHA_THUMBS_RIGHT_2__, RGB_TOG,
                                                          _______
     ),
 

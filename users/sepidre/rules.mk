@@ -13,6 +13,7 @@ COMBO_ENABLE     			= yes
 LTO_ENABLE       			= no
 RGB_MATRIX_ENABLE			= yes
 FP_EVQ_UNDER_PALMS			= yes
+ENCODER_ENABLE				= yes
 OLED_ENABLE					= yes
 # UNCOMMENT TO DISABLE MACROS
 EXTRAFLAGS     				=
