@@ -128,34 +128,41 @@ u    i     a     e     o     | s    n    r     t    d
 // HomeRow
 // Left
 
-#define K_UCTL MT(MOD_LCTL, DE_U)
-#define K_IALT MT(MOD_LALT, DE_I)
-#define K_AGUI MT(MOD_LGUI, DE_A)
-#define K_ESFT MT(MOD_LSFT, DE_E)
+#define K_CSYM LT(_SYMBOLS, DE_C)
+#define K_HFUN LT(_FUNCTION, DE_H)
+
+#define K_UCTL   MT(MOD_LCTL, DE_U)
+#define K_IALT   MT(MOD_LALT, DE_I)
+#define K_AGUI   MT(MOD_LGUI, DE_A)
+#define K_ESFT   MT(MOD_LSFT, DE_E)
+#define K_OMOUSE LT(_MOUSE, DE_O)
 // Right
 #define K_NSFT MT(MOD_RSFT, DE_N)
 #define K_RGUI MT(MOD_RGUI, DE_R)
 #define K_TALT MT(MOD_RALT, DE_T)
 #define K_DCTL MT(MOD_RCTL, DE_D)
-#define ____________________NEO2_L1___________________			DE_X,    DE_V,    DE_L,    DE_C,    DE_W
-#define ____________________NEO2_L2___________________			K_UCTL,  K_IALT,  K_AGUI,  K_ESFT,  DE_O
+#define ____________________NEO2_L1___________________			DE_X,    DE_V,    DE_L,    K_CSYM,    DE_W
+#define ____________________NEO2_L2___________________			K_UCTL,  K_IALT,  K_AGUI,  K_ESFT,  K_OMOUSE
 #define ____________________NEO2_L3___________________			DE_UE,   DE_OE,   DE_AE,   DE_P,    DE_Z
-#define ____________________NEO2_R1___________________			DE_K,    DE_H,    DE_G,    DE_F,    DE_Q
+#define ____________________NEO2_R1___________________			DE_K,    K_HFUN,    DE_G,    DE_F,    DE_Q
 #define ____________________NEO2_R2___________________			DE_S,    K_NSFT,  K_RGUI,  K_TALT,  K_DCTL
 #define ____________________NEO2_R3___________________			DE_B,    DE_M,    DE_Y,    DE_SS,   DE_J
 
+#define ____________________GAME_L1___________________			____________________NEO2_L1___________________
 #define ____________________GAME_L2___________________			DE_U,  DE_I,  DE_A,  DE_E,  DE_O
 #define ____________________GAME_L3___________________			DE_COMM, DE_DOT, DE_COLN, DE_P,  DE_Z
+
 #define ____________________GAME_R2___________________			DE_S,  DE_N,  DE_R,  DE_T,  DE_D
 
-#define ________________WEAPON_1_______________			DE_K, KC_BSPC, KC_UP,   KC_DEL,  KC_LCTL
-#define ________________WEAPON_2_______________			DE_Q, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP
-#define ________________WEAPON_3_______________			DE_B, KC_LSFT, DE_J,    DE_T,    KC_PGDN
+#define ________________WEAPON_1_______________			KC_HOME, KC_BSPC, KC_UP,   KC_DEL,  KC_LCTL
+#define ________________WEAPON_2_______________			KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP
+#define ________________WEAPON_3_______________			DE_COLN, DE_SCLN, DE_MINS, DE_RPRN, DE_LPRN
 
 // BLANK FULL LINE
 #define ___________________BLANK___________________			_______, _______, _______, _______, _______
 
 /* NAVIGATION
+
 ESC  Back  UP    DEL   CTRL
 HOME Left  Down  Right PUp
 END  Shift ALT   Next  PDown
@@ -198,12 +205,12 @@ AF4              WTP         |      WTN              Act Combo
            Reset Spac        |      Ent  Boot
 */
 #define ________________ADJUST_L1_________________			RGB_TOG, RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
-#define ________________ADJUST_L2_________________			_______, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO2)
-#define ________________ADJUST_L3_________________			_______, RGB_HUD, RGB_SAD, RGB_VAD, TG(_GME)
+#define ________________ADJUST_L2_________________			_______, RGB_HUI,          RGB_SAI,          RGB_VAI, TG(_NEO2)
+#define ________________ADJUST_L3_________________			_______, RGB_HUD,          RGB_SAD,          RGB_VAD, TG(_GME)
 
-#define ________________ADJUST_R1_________________			RGB_TOG, RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
-#define ________________ADJUST_R2_________________			QK_MAGIC_SWAP_CTL_GUI, RGB_HUI, RGB_SAI, RGB_VAI, TG(_NEO2)
-#define ________________ADJUST_R3_________________			QK_MAGIC_TOGGLE_CTL_GUI, RGB_HUD, RGB_SAD, RGB_VAD, TG(_GME)
+#define ________________ADJUST_R1_________________			RGB_TOG,                 RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
+#define ________________ADJUST_R2_________________			QK_MAGIC_SWAP_CTL_GUI,   RGB_HUI,          RGB_SAI,          RGB_VAI, TG(_NEO2)
+#define ________________ADJUST_R3_________________			QK_MAGIC_TOGGLE_CTL_GUI, RGB_HUD,          RGB_SAD,          RGB_VAD, TG(_GME)
 
 // MOUSE LAYER
 
@@ -228,5 +235,6 @@ AF4              WTP         |      WTN              Act Combo
 #define __________________MOUSE_1__________________     __MOUSE_1_K1__, __MOUSE_1_K2__, __MOUSE_1_K3__, __MOUSE_1_K4__, __MOUSE_1_K5__
 #define __________________MOUSE_2__________________     __MOUSE_2_K1__, __MOUSE_2_K2__, __MOUSE_2_K3__, __MOUSE_2_K4__, __MOUSE_2_K5__
 #define __________________MOUSE_3__________________     __MOUSE_3_K1__, __MOUSE_3_K2__, __MOUSE_3_K3__, __MOUSE_3_K4__, __MOUSE_3_K5__
+#define __________________MOUSE_4__________________     KC_LCTL, KC_LALT, KC_LSFT, KC_LSFT, _______
 
 // clang-format on

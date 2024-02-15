@@ -11,16 +11,6 @@ __attribute__((weak)) bool process_record_secrets(uint16_t keycode, keyrecord_t 
 // Defines actions tor my global custom keycodes. Defined in sadekbaroudi.h file
 // Then runs the _keymap's record handler if not processed here
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-
-    if (!IS_MOD(keycode) && record->event.pressed) {
-		if(keycode == QK_MAGIC_SWAP_CTL_GUI) {
-			current_os =_MAC;
-		}
-        if(keycode == QK_MAGIC_UNSWAP_CTL_GUI) {
-            current_os = _WIN;
-        }
-	}
-
     #ifdef CASEMODES_ENABLE
     // Process case modes
     if (!process_case_modes(keycode, record)) {

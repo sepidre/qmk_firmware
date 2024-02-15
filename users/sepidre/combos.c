@@ -22,16 +22,16 @@
 // CAPS CAPS
 
 // COMBOS - https://beta.docs.qmk.fm/using-qmk/software-features/feature_combo
-const uint16_t PROGMEM brc_combo[] = {DE_L, DE_C, COMBO_END};
+const uint16_t PROGMEM brc_combo[] = {DE_L, K_CSYM, COMBO_END};
 const uint16_t PROGMEM cbr_combo[] = {DE_AE, DE_P, COMBO_END};
 const uint16_t PROGMEM prn_combo[] = {DE_M, DE_Y, COMBO_END};
-const uint16_t PROGMEM abk_combo[] = {DE_H, DE_G, COMBO_END};
+const uint16_t PROGMEM abk_combo[] = {K_HFUN, DE_G, COMBO_END};
 const uint16_t PROGMEM at_combo[] = {K_IALT, K_AGUI, COMBO_END};
 const uint16_t PROGMEM dquo_combo[] = {DE_V, DE_L, COMBO_END};
 const uint16_t PROGMEM quo_combo[] = {DE_G, DE_F, COMBO_END};
-const uint16_t PROGMEM under_combo[] = {DE_C, DE_W, COMBO_END};
-const uint16_t PROGMEM minus_combo[] = {DE_K, DE_H, COMBO_END};
-const uint16_t PROGMEM circ_combo[] = {K_ESFT, DE_O, COMBO_END};
+const uint16_t PROGMEM under_combo[] = {K_CSYM, DE_W, COMBO_END};
+const uint16_t PROGMEM minus_combo[] = {DE_K, K_HFUN, COMBO_END};
+const uint16_t PROGMEM circ_combo[] = {K_ESFT, K_OMOUSE, COMBO_END};
 const uint16_t PROGMEM slsh_combo[] = {DE_OE, DE_AE, COMBO_END};
 const uint16_t PROGMEM bsls_combo[] = {DE_Y, DE_SS, COMBO_END};
 const uint16_t PROGMEM tabl_combo[] = {K_AGUI, K_ESFT, COMBO_END};

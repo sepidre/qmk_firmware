@@ -23,6 +23,7 @@
  * that there is no need to set them up for each layout, and modify all of
  * them if I want to change them.  This helps to keep consistency and ease
  * of use. K## is a placeholder to pass through the individual keycodes
+ * make fingerpunch/ffkb/rp/v1:sepidre RGB_MATRIX_ENABLE=yes FP_EVQ=yes FP_TRACKBALL_ENABLE=yes HAPTIC_ENABLE=yes AUDIO_ENABLE=yes
  */
 
 // clang-format off
@@ -62,7 +63,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, ________________NAVIGATION_2_______________, _________________FKEYS_2___________________, _______,
         _______, ________________NAVIGATION_3_______________, _________________FKEYS_3___________________, _______,
                    _______, __ALPHA_THUMBS_LEFT_2__, _______, MO(_FUNCTION), __ALPHA_THUMBS_RIGHT_2__, _______,
-                                                         _______
     ),
 
     [_SYMBOLS] = LAYOUT_wrapper(
@@ -70,7 +70,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _________________SYMBOLS_2_________________, _________________NUMPAD_2__________________, _______,
         _______, _________________SYMBOLS_3_________________, _________________NUMPAD_3__________________, _______,
              _______, __ALPHA_THUMBS_LEFT_2__, MO(_FUNCTION), _______, __ALPHA_THUMBS_RIGHT_2__, RGB_TOG,
-                                                         _______
     ),
 
     [_FUNCTION] = LAYOUT_wrapper(
@@ -78,7 +77,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, ________________ADJUST_L2_________________, ________________ADJUST_R2_________________, _______,
         _______, ________________ADJUST_L3_________________, ________________ADJUST_R3_________________, _______,
                   _______, __ALPHA_THUMBS_LEFT_2__, _______, _______, KC_ENT, TG(_GME), _______,
-                                                         _______
     ),
 
     [_GME] = LAYOUT_ffkb_base_wrapper(
@@ -93,13 +91,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, ________________WEAPON_2_______________, _________________FKEYS_2___________________, _______,
         _______, ________________WEAPON_3_______________, _________________FKEYS_3___________________, _______,
                         _______, KC_TAB, KC_SPC, _______, KC_ESC, KC_ENT, TG(_GME), MO(_FUNCTION),
-                                                         _______
     )
     [_MOUSE] = LAYOUT_wrapper(
         _______, __________________MOUSE_1__________________, ___________________BLANK___________________, _______,
         _______, __________________MOUSE_2__________________, ___________________BLANK___________________, _______,
         _______, __________________MOUSE_3__________________, ___________________BLANK___________________, _______,
-                    _______, _______, KC_MS_BTN1, KC_MS_BTN3, KC_MS_BTN3, KC_MS_BTN2, _______, _______
+                 _______, KC_MS_BTN3, KC_MS_BTN1, KC_MS_BTN2, KC_MS_BTN1, KC_MS_BTN2, KC_MS_BTN3, _______
     )
 };
 
