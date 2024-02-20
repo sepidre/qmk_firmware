@@ -57,11 +57,6 @@ enum userspace_custom_keycodes {
     TD_EXLM_SEC,
     SS_SEC5,
     TD_GRV_SEC,
-    KC_SECRET_1,
-    KC_SECRET_2,
-    KC_SECRET_3,
-    KC_SECRET_4,
-    KC_SECRET_5,
     NEW_SAFE_RANGE
 };
 
