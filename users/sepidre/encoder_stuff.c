@@ -77,6 +77,22 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     #endif
                 }
                 break;
+            case _MOUSE:
+                // scroll wheel
+                if (clockwise){
+                    #ifdef ENCODERS_B_REVERSE
+                    tap_code16(KC_MS_WH_UP);
+                    #else
+                    tap_code16(KC_MS_WH_DOWN);
+                    #endif
+                } else{
+                    #ifdef ENCODERS_B_REVERSE
+                    tap_code16(KC_MS_WH_DOWN);
+                    #else
+                    tap_code16(KC_MS_WH_UP);
+                    #endif
+                }
+                break;
             default:
                 // super ctrl tab
                 // switch between browser windows, or files in vscode
