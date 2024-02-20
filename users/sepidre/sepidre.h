@@ -25,7 +25,6 @@
 #include "combos.h"
 #include "process_records.h"
 #include "encoder_stuff.h"
-#include "secrets.h"
 
 
 /* Define layer names */
