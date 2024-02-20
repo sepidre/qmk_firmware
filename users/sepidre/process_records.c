@@ -225,7 +225,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(KC_SEC1);
             }
             return false;
-            break
+            break;
+        case SS_SEC2:
+            if (record->event.pressed) {
+                SEND_STRING(KC_SEC2);
+            }
+            return false;
+            break;
+        case SS_SEC3:
+            if (record->event.pressed) {
+                SEND_STRING(KC_SEC3);
+            }
+            return false;
+            break;
+        case SS_SEC4:
+            if (record->event.pressed) {
+                SEND_STRING(KC_SEC4);
+            }
+            return false;
+            break;
+        case SS_SEC5:
+            if (record->event.pressed) {
+                SEND_STRING(KC_SEC5);
+            }
+            return false;
+            break;
     }
     return true;
 }
