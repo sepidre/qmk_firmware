@@ -1,5 +1,6 @@
 SRC += sepidre.c \
-       process_records.c
+       process_records.c\
+       secrets.c
 
 COMMAND_ENABLE   = no  # Commands for debug and configuration
 CONSOLE_ENABLE   = no  # Console for debug
@@ -64,4 +65,3 @@ endif
 ifeq ($(strip $(AUDIO_ENABLE)), yes)
     SRC += audio_userspace.c
 endif
-

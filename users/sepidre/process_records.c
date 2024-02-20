@@ -22,7 +22,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!(process_record_keymap(keycode, record) && process_record_secrets(keycode, record))) {
         return false;
     }
-
+    process_record_secrets(keycode, record);
     switch (keycode) {
         case C_CAPSWORD:
             // NOTE: if you change this behavior, may want to update in keymap.c for COMBO behavior
@@ -220,45 +220,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         // COMMENT TO DISABLE MACROS
-        case SS_SEC1:
-            if (record->event.pressed) {
-                SEND_STRING(KC_SEC1);
-            }
-            return false;
-            break;
-        case SS_SEC2:
-            if (record->event.pressed) {
-                SEND_STRING(KC_SEC2);
-            }
-            return false;
-            break;
-        case SS_SEC3:
-            if (record->event.pressed) {
-                SEND_STRING(KC_SEC3);
-            }
-            return false;
-            break;
-        case SS_SEC4:
-            if (record->event.pressed) {
-                SEND_STRING(KC_SEC4);
-            }
-            return false;
-            break;
-        case SS_SEC5:
-            if (record->event.pressed) {
-                SEND_STRING(KC_SEC5);
-            }
-            return false;
-            break;
     }
-    return true;
+    return process_record_keymap(keycode, record) && process_record_secrets(keycode, record);
 }
-
-tap_dance_action_t tap_dance_actions[] = {
-    [TD_SECT_SEC] = ACTION_TAP_DANCE_DOUBLE(DE_SECT, SS_SEC1),
-    [TD_AMPR_SEC] = ACTION_TAP_DANCE_DOUBLE(DE_AMPR, SS_SEC2),
-    [TD_DLR_SEC] = ACTION_TAP_DANCE_DOUBLE(DE_DLR, SS_SEC3),
-    [TD_EXLM_SEC] = ACTION_TAP_DANCE_DOUBLE(DE_EXLM, SS_SEC4),
-    [TD_GRV_SEC] = ACTION_TAP_DANCE_DOUBLE(DE_GRV, SS_SEC5)
-
-};
