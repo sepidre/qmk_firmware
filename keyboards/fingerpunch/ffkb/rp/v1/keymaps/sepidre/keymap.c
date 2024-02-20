@@ -43,7 +43,7 @@
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_ffkb_base_wrapper(...)       LAYOUT_ffkb_base(__VA_ARGS__)
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {bb
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NEO2] = LAYOUT_ffkb_base_wrapper(
         ____________________NEO2_L1___________________, ____________________NEO2_R1___________________,
         ____________________NEO2_L2___________________, ____________________NEO2_R2___________________,
@@ -101,3 +101,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {bb
     )
 };
 
+void raw_hid_receive(uint8_t* data, uint8_t length) {
+    layer_clear();
+    if (data[0] == 99) {
+        layer_on(_NEO2);
+    }
+    else {
+        layer_on(data[0]);
+    }
+}
