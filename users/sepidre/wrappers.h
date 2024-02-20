@@ -185,7 +185,8 @@ END  Shift ALT   Next  PDown
 ~    |     (     )     ?
 %    €     ;     :     -
 */
-#define _________________SYMBOLS_1_________________			TD(TD_SECT_SEC), TD(TD_AMPR_SEC), TD(TD_DLR_SEC), TD(TD_EXLM_SEC), TD(TD_GRV_SEC)
+//#define _________________SYMBOLS_1_________________			TD(TD_SECT_SEC), TD(TD_AMPR_SEC), TD(TD_DLR_SEC), TD(TD_EXLM_SEC), TD(TD_GRV_SEC)
+#define _________________SYMBOLS_1_________________			DE_SECT, DE_AMPR, DE_DLR, DE_EXLM, DE_GRV
 #define _________________SYMBOLS_2_________________			DE_TILD, ALGR(KC_NUBS), DE_LPRN, DE_RPRN, DE_QUES
 #define _________________SYMBOLS_3_________________			DE_PERC, DE_EURO, DE_SCLN, DE_COLN, DE_MINS
 
@@ -204,9 +205,9 @@ ESC  NWD               CAE   | CAPS NEO  NEOS   APTv3 GME
 AF4              WTP         |      WTN              Act Combo
            Reset Spac        |      Ent  Boot
 */
-#define ________________ADJUST_L1_________________			RGB_TOG, RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
-#define ________________ADJUST_L2_________________			_______, RGB_HUI,          RGB_SAI,          RGB_VAI, TG(_NEO2)
-#define ________________ADJUST_L3_________________			_______, RGB_HUD,          RGB_SAD,          RGB_VAD, TG(_GME)
+#define ________________ADJUST_L1_________________			SS_SEC5, SS_SEC4, SS_SEC3, SS_SEC2, SS_SEC1
+#define ________________ADJUST_L2_________________			RGB_MODE_FORWARD, RGB_HUI,          RGB_SAI,          RGB_VAI, TG(_NEO2)
+#define ________________ADJUST_L3_________________			RGB_MODE_REVERSE, RGB_HUD,          RGB_SAD,          RGB_VAD, TG(_GME)
 
 #define ________________ADJUST_R1_________________			RGB_TOG,                 RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
 #define ________________ADJUST_R2_________________			QK_MAGIC_SWAP_CTL_GUI,   RGB_HUI,          RGB_SAI,          RGB_VAI, TG(_NEO2)
