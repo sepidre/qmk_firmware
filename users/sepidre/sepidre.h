@@ -25,6 +25,8 @@
 #include "combos.h"
 #include "process_records.h"
 #include "encoder_stuff.h"
+#include "secrets.h"
+
 
 /* Define layer names */
 enum userspace_layers {
@@ -74,6 +76,5 @@ typedef union {
     };
 } userspace_config_t;
 // clang-format on
-
 extern userspace_config_t userspace_config;
 

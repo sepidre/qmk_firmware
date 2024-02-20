@@ -47,11 +47,24 @@ enum userspace_custom_keycodes {
     G_GOD_OFF,
     G_PULLING,
     G_PUSH,
-    NEW_SAFE_RANGE
+    NEW_SAFE_RANGE,
+    SS_SEC1,
+    TD_SECT_SEC1,
+    SS_SEC2,
+    TD_AMPR_SEC2,
+    SS_SEC3,
+    TD_DLR_SEC3,
+    SS_SEC4,
+    TD_EXLM_SEC4,
+    SS_SEC5,
+    TD_GRV_SEC5
 };
 
 bool process_record_secrets(uint16_t keycode, keyrecord_t *record);
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
+void tap_dance_tap_hold_finished(tap_dance_state_t *state, void *user_data);
+void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data);
+
 
 #define KC_SEC1 KC_SECRET_1
 #define KC_SEC2 KC_SECRET_2
