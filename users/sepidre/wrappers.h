@@ -185,7 +185,7 @@ END  Shift ALT   Next  PDown
 ~    |     (     )     ?
 %    €     ;     :     -
 */
-#define _________________SYMBOLS_1_________________			TD(TD_SECT_SEC1), TD(TD_AMPR_SEC2), TD(TD_DLR_SEC3), TD(TD_EXLM_SEC4), TD(TD_GRV_SEC5)
+#define _________________SYMBOLS_1_________________			TD(TD_SECT_SEC), TD(TD_AMPR_SEC), TD(TD_DLR_SEC), TD(TD_EXLM_SEC), TD(TD_GRV_SEC)
 #define _________________SYMBOLS_2_________________			DE_TILD, ALGR(KC_NUBS), DE_LPRN, DE_RPRN, DE_QUES
 #define _________________SYMBOLS_3_________________			DE_PERC, DE_EURO, DE_SCLN, DE_COLN, DE_MINS
 
