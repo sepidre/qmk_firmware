@@ -22,7 +22,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!(process_record_keymap(keycode, record) && process_record_secrets(keycode, record))) {
         return false;
     }
-    tap_dance_action_t *action;
+
     switch (keycode) {
         case C_CAPSWORD:
             // NOTE: if you change this behavior, may want to update in keymap.c for COMBO behavior
