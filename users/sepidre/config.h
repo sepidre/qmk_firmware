@@ -23,7 +23,7 @@
 // -------------------- Tap hold stuff config ------------------------
 
 #define TAP_CODE_DELAY 25
-
+#define TAPPING_TERM 250
 #define QUICK_TAP_TERM 0
 
 // -------------------- Leader key config ------------------------

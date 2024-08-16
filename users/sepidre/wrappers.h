@@ -154,9 +154,9 @@ u    i     a     e     o     | s    n    r     t    d
 
 #define ____________________GAME_R2___________________			DE_S,  DE_N,  DE_R,  DE_T,  DE_D
 
-#define ________________WEAPON_1_______________			KC_HOME, KC_BSPC, KC_UP,   KC_DEL,  KC_LCTL
+#define ________________WEAPON_1_______________			KC_ESC,  KC_BSPC, KC_UP,   KC_DEL,  KC_LCTL
 #define ________________WEAPON_2_______________			KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP
-#define ________________WEAPON_3_______________			DE_COLN, DE_SCLN, DE_MINS, DE_RPRN, DE_LPRN
+#define ________________WEAPON_3_______________			KC_1,    KC_2,    KC_3,    KC_4,    KC_5
 
 // BLANK FULL LINE
 #define ___________________BLANK___________________			_______, _______, _______, _______, _______
@@ -205,9 +205,9 @@ ESC  NWD               CAE   | CAPS NEO  NEOS   APTv3 GME
 AF4              WTP         |      WTN              Act Combo
            Reset Spac        |      Ent  Boot
 */
-#define ________________ADJUST_L1_________________			SS_SEC5, SS_SEC4, SS_SEC3, SS_SEC2, SS_SEC1
-#define ________________ADJUST_L2_________________			RGB_MODE_FORWARD, RGB_HUI,          RGB_SAI,          RGB_VAI, TG(_NEO2)
-#define ________________ADJUST_L3_________________			RGB_MODE_REVERSE, RGB_HUD,          RGB_SAD,          RGB_VAD, TG(_GME)
+#define ________________ADJUST_L1_________________			RGB_MODE_FORWARD, RGB_HUI, RGB_SAI, RGB_VAI, _______
+#define ________________ADJUST_L2_________________			RGB_MODE_REVERSE, RGB_HUD, RGB_SAD, RGB_VAD, _______
+#define ________________ADJUST_L3_________________			SS_SEC5,          SS_SEC4, SS_SEC3, SS_SEC2, SS_SEC1
 
 #define ________________ADJUST_R1_________________			RGB_TOG,                 RGB_MODE_REVERSE, RGB_MODE_FORWARD, _______, TG(_APTv3)
 #define ________________ADJUST_R2_________________			QK_MAGIC_SWAP_CTL_GUI,   RGB_HUI,          RGB_SAI,          RGB_VAI, TG(_NEO2)
